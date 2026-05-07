@@ -2,7 +2,7 @@
 import React, { useMemo, useCallback } from 'react';
 import 'leaflet/dist/leaflet.css';
 import { QuoteRequest, Zone, FixedDestination } from '../types';
-import { Map, ExternalLink, Navigation } from 'lucide-react';
+import { Map as MapIcon, ExternalLink, Navigation } from 'lucide-react';
 
 interface Props {
   request: QuoteRequest;
@@ -107,7 +107,7 @@ const MapPreview: React.FC<Props> = ({ request, isXXL = false, zones = [], fixed
       <div className="px-6 py-4 border-b border-slate-100 bg-slate-50/50 flex justify-between items-center">
         <div className="flex items-center gap-3">
           <div className="p-2 bg-white rounded-xl shadow-sm border border-slate-100">
-            <Map className="w-4 h-4 text-[#0088CC]" />
+            <MapIcon className="w-4 h-4 text-[#0088CC]" />
           </div>
           <h3 className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em]">
             Visualisation Itinéraire

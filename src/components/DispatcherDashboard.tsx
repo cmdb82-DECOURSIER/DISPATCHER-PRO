@@ -10,10 +10,10 @@ import { DeliveryNoteForm, DeliveryNoteFormHandle } from './DeliveryNoteForm';
 import * as XLSX from 'xlsx';
 import { 
   MapPin, Plus, Trash2, RotateCcw, UserPlus, User, Calendar, Clock, 
-  Loader2, Search, X, Map, Calculator, 
+  Loader2, Search, X, Map as MapIcon, Calculator, 
   Users, Pencil, Download, Upload, ChevronDown, Zap,
   Milestone, Settings2, PlusCircle, MinusCircle, ListPlus, Hash, Mail, Building,
-  Check, Info, Eraser, Sparkles, ClipboardPaste, Archive, Database, Book, Phone, FileText, FileCheck
+  Check, Info, Eraser, Sparkles, ClipboardPaste, Archive, Database, Phone, FileText, FileCheck
 } from 'lucide-react';
 
 interface Props {
@@ -657,7 +657,7 @@ export const DispatcherDashboard: React.FC<Props> = ({
                     onClick={() => onChange({ ...request, pricingMode: 'distance' })}
                     className={`flex-1 px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2 ${request.pricingMode === 'distance' || request.pricingMode === 'calculator' || request.pricingMode === 'forfait' ? 'bg-[#0088CC] text-white shadow-lg' : 'text-slate-500 hover:text-white hover:bg-white/5'}`}
                 >
-                    <Map className="w-4 h-4" /> Standard (GPS)
+                    <MapIcon className="w-4 h-4" /> Standard (GPS)
                 </button>
                 <button 
                     onClick={() => onChange({ ...request, pricingMode: 'city' })}
@@ -786,24 +786,24 @@ export const DispatcherDashboard: React.FC<Props> = ({
                 </div>
             </div>
 
-            <div className="space-y-8 relative pl-12 border-l-2 border-white/5">
+            <div className="space-y-6 relative pl-10 border-l-2 border-white/5 ml-4">
                 {request.stops.map((stop, i) => (
-                    <div key={stop.id} className="relative group animate-in slide-in-from-left-4 duration-500 pb-4">
-                        <div className={`absolute -left-[54px] top-6 w-8 h-8 rounded-full border-4 border-slate-900 shadow-xl z-10 flex items-center justify-center text-[10px] font-black text-white transition-transform group-hover:scale-110 ${i === 0 ? 'bg-emerald-500' : i === request.stops.length - 1 ? 'bg-[#FF6600]' : 'bg-slate-600'}`}>
+                    <div key={stop.id} className="relative group animate-in slide-in-from-left-4 duration-500 pb-2">
+                        <div className={`absolute -left-[53px] top-5 w-7 h-7 rounded-full border-4 border-slate-900 shadow-xl z-10 flex items-center justify-center text-[9px] font-black text-white transition-transform group-hover:scale-110 ${i === 0 ? 'bg-emerald-500' : i === request.stops.length - 1 ? 'bg-[#FF6600]' : 'bg-slate-600'}`}>
                             {i === 0 ? 'DE' : i === request.stops.length - 1 ? 'À' : i + 1}
                         </div>
 
-                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-2 items-center bg-slate-950/40 p-3 rounded-[20px] border border-white/5 hover:border-white/10 hover:bg-slate-900/80 transition-all">
+                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 items-center bg-slate-900/40 p-2.5 rounded-2xl border border-white/5 hover:border-white/20 hover:bg-slate-900/90 transition-all shadow-sm">
                             {/* Client / Contact */}
                             <div className="lg:col-span-2 space-y-1">
                                 <div className="flex items-center gap-1.5 px-1">
                                     <User className="w-2.5 h-2.5 text-slate-500" />
-                                    <span className="text-[8px] font-black text-slate-500 uppercase tracking-widest">Client</span>
+                                    <span className="text-[7.5px] font-black text-slate-500 uppercase tracking-widest">Client / Contact</span>
                                 </div>
                                 <div className="relative">
                                     <input 
                                         type="text" 
-                                        placeholder="Nom..." 
+                                        placeholder="Contact..." 
                                         value={stop.clientName || ''} 
                                         onChange={(e) => updateStopField(stop.id, 'clientName', e.target.value)} 
                                         onFocus={() => {
@@ -811,7 +811,7 @@ export const DispatcherDashboard: React.FC<Props> = ({
                                             setPickerSearch('');
                                         }}
                                         autoComplete="off"
-                                        className="w-full pl-3 pr-8 py-2 bg-slate-950/50 border border-white/5 rounded-lg text-[11px] font-black focus:border-[#0088CC] outline-none transition-all text-white placeholder:text-slate-700" 
+                                        className="w-full pl-2.5 pr-7 py-1.5 bg-slate-950/40 border border-white/5 rounded-lg text-[10.5px] font-bold focus:border-[#0088CC] focus:bg-slate-950 outline-none transition-all text-white placeholder:text-slate-700" 
                                     />
                                     <button 
                                         onClick={() => setActiveStopPicker(activeStopPicker?.id === stop.id && activeStopPicker.type === 'client' ? null : { id: stop.id, type: 'client' })}
@@ -824,9 +824,9 @@ export const DispatcherDashboard: React.FC<Props> = ({
 
                             {/* Réf & Heure */}
                             <div className="lg:col-span-2 space-y-1">
-                                <div className="flex items-center gap-1.5 px-1">
+                                <div className="flex items-center gap-1.5 px-0.5">
                                     <Clock className="w-2.5 h-2.5 text-slate-500" />
-                                    <span className="text-[8px] font-black text-slate-500 uppercase tracking-widest">Réf / Heure</span>
+                                    <span className="text-[7.5px] font-black text-slate-500 uppercase tracking-widest">Réf / Heure</span>
                                 </div>
                                 <div className="flex gap-1">
                                     <input 
@@ -834,23 +834,23 @@ export const DispatcherDashboard: React.FC<Props> = ({
                                         placeholder="Réf..." 
                                         value={stop.reference || ''} 
                                         onChange={(e) => updateStopField(stop.id, 'reference', e.target.value)} 
-                                        className="w-1/2 px-2 py-2 bg-slate-950/30 border border-white/5 rounded-lg text-[10px] font-bold focus:border-[#0088CC] outline-none transition-all text-slate-300 placeholder:text-slate-700" 
+                                        className="w-[55%] px-2 py-1.5 bg-slate-950/40 border border-white/5 rounded-lg text-[10px] font-bold focus:border-[#0088CC] focus:bg-slate-950 outline-none transition-all text-slate-300 placeholder:text-slate-700" 
                                     />
                                     <input 
                                         type="time" 
                                         value={stop.scheduledTime || ''} 
                                         onChange={(e) => updateStopField(stop.id, 'scheduledTime', e.target.value)} 
-                                        className="w-1/2 px-2 py-2 bg-slate-950/30 border border-white/5 rounded-lg text-[10px] font-bold focus:border-[#0088CC] outline-none transition-all text-slate-300" 
+                                        className="w-[45%] px-1.5 py-1.5 bg-slate-950/40 border border-white/5 rounded-lg text-[10px] font-bold focus:border-[#0088CC] focus:bg-slate-950 outline-none transition-all text-slate-300" 
                                     />
                                 </div>
                             </div>
 
                             {/* Lieu / Adresse */}
                             <div className="lg:col-span-4 space-y-1">
-                                <div className="flex items-center justify-between px-1">
+                                <div className="flex items-center justify-between px-0.5">
                                     <div className="flex items-center gap-1.5">
                                         <MapPin className={`w-2.5 h-2.5 ${i === 0 ? 'text-emerald-500' : i === request.stops.length - 1 ? 'text-[#FF6600]' : 'text-slate-500'}`} />
-                                        <span className="text-[8px] font-black text-slate-500 uppercase tracking-widest">Adresse</span>
+                                        <span className="text-[7.5px] font-black text-slate-500 uppercase tracking-widest">Lieu / Adresse</span>
                                     </div>
                                     {(i === 0 || i === request.stops.length - 1) && (
                                         <button 
@@ -892,7 +892,7 @@ export const DispatcherDashboard: React.FC<Props> = ({
                                             }}
                                             className={`flex items-center gap-1 px-1.5 py-0.5 rounded border transition-all ${stop.isMae ? 'bg-[#0088CC] border-[#0088CC] text-white' : 'bg-slate-900 border-white/10 text-slate-500 hover:border-[#0088CC]'}`}
                                         >
-                                            <span className="text-[7px] font-black">MAE</span>
+                                            <span className="text-[7px] font-black uppercase">MAE</span>
                                             {stop.isMae && <Check className="w-2 h-2" />}
                                         </button>
                                     )}
@@ -907,11 +907,11 @@ export const DispatcherDashboard: React.FC<Props> = ({
                                             setActiveStopPicker({ id: stop.id, type: 'address' });
                                             setPickerSearch('');
                                         }}
-                                        className="w-full pl-3 pr-10 py-2 bg-slate-950/50 border border-white/5 rounded-lg text-[11px] font-black focus:border-[#0088CC] outline-none transition-all text-white placeholder:text-slate-700" 
+                                        className="w-full pl-3 pr-8 py-1.5 bg-slate-950/40 border border-white/5 rounded-lg text-[10.5px] font-bold focus:border-[#0088CC] focus:bg-slate-950 outline-none transition-all text-white placeholder:text-slate-700" 
                                     />
                                     <button 
                                         onClick={() => setActiveStopPicker(activeStopPicker?.id === stop.id && activeStopPicker.type === 'address' ? null : { id: stop.id, type: 'address' })} 
-                                        className="absolute right-2 top-2 text-slate-600 hover:text-[#0088CC]"
+                                        className="absolute right-2 top-1.5 text-slate-600 hover:text-[#0088CC]"
                                     >
                                         <Users className="w-3.5 h-3.5" />
                                     </button>
@@ -920,125 +920,142 @@ export const DispatcherDashboard: React.FC<Props> = ({
 
                             {/* Grille Tarifaire */}
                             <div className="lg:col-span-2 space-y-1">
-                                <div className="flex items-center gap-1.5 px-1">
-                                    <Database className="w-2.5 h-2.5 text-[#0088CC]" />
-                                    <span className="text-[8px] font-black text-slate-500 uppercase tracking-widest">Tarif</span>
+                                <div className="flex items-center gap-1.5 px-0.5">
+                                    <Database className="w-2.5 h-2.5 text-slate-500" />
+                                    <span className="text-[7.5px] font-black text-slate-500 uppercase tracking-widest">Tarif</span>
                                 </div>
                                 <div className="relative">
                                     <div 
                                         onClick={() => setActiveStopPicker(activeStopPicker?.id === stop.id && activeStopPicker.type === 'zone' ? null : { id: stop.id, type: 'zone' })} 
-                                        className={`w-full pl-3 pr-8 py-2 bg-slate-950/50 border border-white/5 rounded-lg text-[10px] font-black outline-none transition-all cursor-pointer flex items-center justify-between ${stop.zoneId ? 'text-white' : 'text-slate-600'}`}
+                                        className={`w-full pl-3 pr-8 py-1.5 bg-slate-950/40 border border-white/5 rounded-lg text-[10px] font-black outline-none transition-all cursor-pointer flex items-center justify-between ${stop.zoneId ? 'text-[#0088CC]' : 'text-slate-600'}`}
                                     >
-                                        <span className="truncate">{stop.zoneId ? getPlaceName(stop.zoneId) : "Sélect..."}</span>
-                                        <Book className="w-3 h-3 text-slate-700" />
+                                        <span className="truncate">{stop.zoneId ? getPlaceName(stop.zoneId) : "Auto..."}</span>
+                                        <ChevronDown className="w-3 h-3 text-slate-700" />
                                     </div>
                                     {stop.zoneId && <button onClick={() => handlePickZone(stop.id, '')} className="absolute -right-1 -top-1 w-4 h-4 bg-slate-800 border border-white/10 rounded-full flex items-center justify-center text-slate-500 hover:text-red-500 transition-all z-20"><X className="w-2 h-2" /></button>}
                                 </div>
                             </div>
 
                             {/* Actions */}
-                            <div className="lg:col-span-2 flex items-center justify-end gap-1">
-                                <button onClick={() => clearStop(stop.id)} className="p-2 text-slate-600 hover:text-[#0088CC] hover:bg-white/5 rounded-lg transition-all" title="Effacer"><Eraser className="w-4 h-4" /></button>
-                                {request.stops.length > 2 && <button onClick={() => removeStop(stop.id)} className="p-2 text-slate-600 hover:text-red-500 hover:bg-red-500/10 rounded-lg transition-all" title="Supprimer"><Trash2 className="w-4 h-4" /></button>}
+                            <div className="lg:col-span-2 flex items-center justify-end gap-0.5">
+                                <button onClick={() => clearStop(stop.id)} className="p-1.5 text-slate-600 hover:text-[#0088CC] hover:bg-white/5 rounded-lg transition-all" title="Effacer"><Eraser className="w-3.5 h-3.5" /></button>
+                                {request.stops.length > 2 && <button onClick={() => removeStop(stop.id)} className="p-1.5 text-slate-600 hover:text-red-500 hover:bg-red-500/10 rounded-lg transition-all" title="Supprimer"><Trash2 className="w-3.5 h-3.5" /></button>}
                             </div>
 
-                            {/* MAE Config - Horizontal Row if active */}
+                            {/* MAE Config - Horizontal Row if active (The "Sous Case") */}
                             {(i === 0 || i === request.stops.length - 1) && stop.isMae && (
-                                <div className="lg:col-span-12 mt-1 bg-slate-900/30 p-2 rounded-xl border border-[#0088CC]/10 flex flex-wrap items-center gap-3">
-                                    <div className="flex items-center gap-2">
-                                        <span className="text-[8px] font-black text-[#0088CC] uppercase tracking-widest">Pays:</span>
-                                        <select 
-                                            value={request.maeCountry || ''} 
-                                            onChange={(e) => {
-                                                const country = countries.find(c => c.name === e.target.value);
-                                                const newDocs = (request.maeDocuments || []).map(doc => ({ ...doc, country: e.target.value }));
-                                                onChange({...request, maeCountry: e.target.value, maeType: country?.type, maeDocuments: newDocs});
-                                            }}
-                                            className="bg-slate-950 border border-white/5 rounded px-2 py-1 text-[9px] font-bold text-white outline-none focus:border-[#0088CC]"
-                                        >
-                                            <option value="">Sélect...</option>
-                                            {countries.sort((a,b) => a.name.localeCompare(b.name)).map(c => (
-                                                <option key={c.name} value={c.name}>{c.name}</option>
-                                            ))}
-                                        </select>
-                                    </div>
-
-                                    <div className="flex items-center gap-2 ml-auto pr-2">
-                                        <span className="text-[8px] font-black text-slate-500 uppercase tracking-widest">Client:</span>
-                                        <span className="text-[9px] font-bold text-white uppercase">{request.client?.name || stop.clientName || 'N/A'}</span>
-                                        <span className="text-[8px] font-black text-slate-500 uppercase tracking-widest ml-3">Démarche:</span>
-                                        <select 
-                                            value={request.maeType || ''}
-                                            onChange={(e) => onChange({ ...request, maeType: e.target.value as 'apostille' | 'legalisation' })}
-                                            className="bg-transparent text-[9px] font-bold text-[#FF6600] uppercase outline-none cursor-pointer hover:text-[#FF6600]/80 transition-colors"
-                                        >
-                                            <option value="" className="bg-slate-900 text-slate-500">Non défini</option>
-                                            <option value="apostille" className="bg-slate-900 text-white">Apostille</option>
-                                            <option value="legalisation" className="bg-slate-900 text-white">Légalisation</option>
-                                        </select>
-                                    </div>
-
-                                    <div className="flex flex-wrap gap-2 items-center">
-                                        {request.maeDocuments?.map(doc => (
-                                            <div key={doc.id} className="flex items-center gap-1.5 bg-slate-950/80 px-2 py-1 rounded-lg border border-white/5">
+                                <div className="lg:col-span-12 mt-1.5 bg-slate-950/60 p-3 rounded-2xl border border-yellow-500/20 flex flex-wrap items-start gap-4 shadow-inner">
+                                    <div className="space-y-1.5">
+                                        <span className="block text-[7.5px] font-black text-slate-500 uppercase tracking-[0.2em] px-1">Coordonnées Consulat</span>
+                                        <div className="flex gap-2">
+                                            <div className="relative">
                                                 <select 
-                                                    value={doc.signatory || ''}
+                                                    value={request.maeCountry || ''} 
                                                     onChange={(e) => {
-                                                        const newDocs = request.maeDocuments!.map(d => d.id === doc.id ? {...d, signatory: e.target.value} : d);
-                                                        onChange({...request, maeDocuments: newDocs});
+                                                        const country = countries.find(c => c.name === e.target.value);
+                                                        const newDocs = (request.maeDocuments || []).map(doc => ({ ...doc, country: e.target.value }));
+                                                        onChange({...request, maeCountry: e.target.value, maeType: country?.type, maeDocuments: newDocs});
                                                     }}
-                                                    className="bg-transparent text-[9px] font-bold text-yellow-500 outline-none w-20"
+                                                    className="bg-slate-900 border border-white/10 rounded-lg px-2.5 py-1.5 text-[10px] font-black text-white outline-none focus:border-yellow-500 w-32 appearance-none"
                                                 >
-                                                    <option value="" className="bg-slate-900">Signataire...</option>
+                                                    <option value="">PAYS...</option>
+                                                    {countries.sort((a,b) => a.name.localeCompare(b.name)).map(c => (
+                                                        <option key={c.name} value={c.name} className="bg-slate-900">{c.name}</option>
+                                                    ))}
+                                                </select>
+                                                <ChevronDown className="absolute right-2 top-2 w-2.5 h-2.5 text-slate-500 pointer-events-none" />
+                                            </div>
+                                            <div className="relative">
+                                                <select 
+                                                    value={request.maeSignatory || ''}
+                                                    onChange={(e) => onChange({...request, maeSignatory: e.target.value})}
+                                                    className="bg-slate-900 border border-white/10 rounded-lg px-2.5 py-1.5 text-[10px] font-black text-white outline-none focus:border-yellow-500 w-32 appearance-none"
+                                                >
+                                                    <option value="">SIGNATAIRE...</option>
                                                     {signatories.map(s => <option key={s} value={s} className="bg-slate-900">{s}</option>)}
                                                 </select>
-                                                <select
-                                                    value={doc.documentType || ''}
-                                                    onChange={(e) => {
-                                                        const newDocs = request.maeDocuments!.map(d => d.id === doc.id ? {...d, documentType: e.target.value} : d);
-                                                        onChange({...request, maeDocuments: newDocs});
-                                                    }}
-                                                    className="bg-transparent text-[9px] font-bold text-yellow-500 outline-none w-20"
-                                                >
-                                                    <option value="" className="bg-slate-900">Type...</option>
-                                                    {maeDocumentTypes.map(t => <option key={t} value={t} className="bg-slate-900">{t}</option>)}
-                                                </select>
-                                                <input 
-                                                    type="number"
-                                                    value={doc.signatureCount}
-                                                    onChange={(e) => {
-                                                        const newDocs = request.maeDocuments!.map(d => d.id === doc.id ? {...d, signatureCount: parseInt(e.target.value) || 0} : d);
-                                                        onChange({...request, maeDocuments: newDocs});
-                                                    }}
-                                                    className="w-7 bg-transparent text-[9px] font-bold text-yellow-500 text-center outline-none border-b border-white/10"
-                                                />
-                                                <button 
-                                                    onClick={() => {
-                                                        const newDocs = (request.maeDocuments || []).filter(d => d.id !== doc.id);
-                                                        onChange({...request, maeDocuments: newDocs});
-                                                    }}
-                                                    className="text-slate-600 hover:text-red-500"
-                                                >
-                                                    <X className="w-2.5 h-2.5" />
-                                                </button>
+                                                <ChevronDown className="absolute right-2 top-2 w-2.5 h-2.5 text-slate-500 pointer-events-none" />
                                             </div>
-                                        ))}
-                                        <button 
-                                            onClick={() => {
-                                                const newDocs = [...(request.maeDocuments || [])];
-                                                newDocs.push({ id: Math.random().toString(36).substr(2, 9), country: request.maeCountry || '', signatory: '', documentType: '', signatureCount: 1, price: 20 });
-                                                onChange({...request, maeDocuments: newDocs});
-                                            }}
-                                            className="p-1 bg-[#0088CC]/20 text-[#0088CC] rounded hover:bg-[#0088CC]/30 transition-all"
-                                        >
-                                            <Plus className="w-3 h-3" />
-                                        </button>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex-1 space-y-1.5 min-w-[280px]">
+                                        <div className="flex items-center justify-between px-1">
+                                            <span className="text-[7.5px] font-black text-slate-500 uppercase tracking-[0.2em]">Documents (Legalisation / Apostille)</span>
+                                            <div className="flex gap-5 pr-10">
+                                                <span className="text-[7px] font-bold text-slate-600 uppercase">Type</span>
+                                                <span className="text-[7px] font-bold text-slate-600 uppercase">Sign.</span>
+                                            </div>
+                                        </div>
+                                        <div className="space-y-1.5 max-h-40 overflow-y-auto custom-scrollbar pr-1">
+                                            {(request.maeDocuments || []).map(doc => (
+                                                <div key={doc.id} className="flex items-center gap-2 bg-slate-950/80 p-1 rounded-lg border border-white/5 group/doc">
+                                                    <select 
+                                                        value={doc.documentType || ''}
+                                                        onChange={(e) => {
+                                                            const newDocs = request.maeDocuments!.map(d => d.id === doc.id ? {...d, documentType: e.target.value} : d);
+                                                            onChange({...request, maeDocuments: newDocs});
+                                                        }}
+                                                        className="bg-transparent text-[10px] font-black text-yellow-500 outline-none flex-1 truncate px-1"
+                                                    >
+                                                        <option value="" className="bg-slate-900">TYPE DE DOCUMENT...</option>
+                                                        {maeDocumentTypes.map(t => <option key={t} value={t} className="bg-slate-900">{t}</option>)}
+                                                    </select>
+                                                    <input 
+                                                        type="number"
+                                                        value={doc.signatureCount}
+                                                        onChange={(e) => {
+                                                            const newDocs = request.maeDocuments!.map(d => d.id === doc.id ? {...d, signatureCount: parseInt(e.target.value) || 0} : d);
+                                                            onChange({...request, maeDocuments: newDocs});
+                                                        }}
+                                                        className="w-8 bg-slate-900 border border-white/5 rounded text-[10px] font-black text-yellow-500 text-center outline-none"
+                                                    />
+                                                    <button 
+                                                        onClick={() => {
+                                                            const newDocs = (request.maeDocuments || []).filter(d => d.id !== doc.id);
+                                                            onChange({...request, maeDocuments: newDocs});
+                                                        }}
+                                                        className="p-1.5 text-slate-700 hover:text-red-500 transition-colors"
+                                                    >
+                                                        <X className="w-3 h-3" />
+                                                    </button>
+                                                </div>
+                                            ))}
+                                            <button 
+                                                onClick={() => {
+                                                    const newDocs = [...(request.maeDocuments || [])];
+                                                    newDocs.push({ id: Math.random().toString(36).substr(2, 9), country: request.maeCountry || '', signatory: request.maeSignatory || '', documentType: '', signatureCount: 1, price: 20 });
+                                                    onChange({...request, maeDocuments: newDocs});
+                                                }}
+                                                className="w-full py-1.5 border border-dashed border-white/10 text-slate-600 hover:text-yellow-500 hover:border-yellow-500/50 transition-all text-[8px] font-black uppercase tracking-widest rounded-lg flex items-center justify-center gap-2"
+                                            >
+                                                <Plus className="w-3 h-3" /> Ajouter Document
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex flex-col items-center justify-center gap-2 px-4 border-l border-white/5 h-full self-stretch">
+                                        <span className="text-[7.5px] font-black text-slate-500 uppercase tracking-widest">Type Admin</span>
+                                        <div className="bg-slate-950 p-1 rounded-lg border border-white/5 flex gap-1">
+                                            <button 
+                                                onClick={() => onChange({ ...request, maeType: 'apostille' })}
+                                                className={`px-3 py-1 rounded-md text-[8px] font-black uppercase transition-all ${request.maeType === 'apostille' ? 'bg-[#FF6600] text-white shadow-lg shadow-orange-500/20' : 'text-slate-500 hover:text-white'}`}
+                                            >
+                                                Apostille
+                                            </button>
+                                            <button 
+                                                onClick={() => onChange({ ...request, maeType: 'legalisation' })}
+                                                className={`px-3 py-1 rounded-md text-[8px] font-black uppercase transition-all ${request.maeType === 'legalisation' ? 'bg-[#FF6600] text-white shadow-lg shadow-orange-500/20' : 'text-slate-500 hover:text-white'}`}
+                                            >
+                                                Légalisation
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             )}
                         </div>
 
-                        {activeStopPicker?.id === stop.id && activeStopPicker.type !== 'client' && (
+                        {activeStopPicker?.id === stop.id && (
                           <div ref={pickerRef} className="absolute left-0 top-[110px] w-full max-w-lg bg-slate-800 rounded-3xl shadow-2xl shadow-black/50 border border-white/10 z-[100] overflow-hidden animate-in zoom-in-95 duration-200">
                             <div className="p-4 border-b border-white/5 bg-slate-900">
                               <div className="relative">
@@ -1087,10 +1104,39 @@ export const DispatcherDashboard: React.FC<Props> = ({
                                   </div>
                                 </button>
                               )}
-                              {activeStopPicker.type === 'address' ? (
+                              {activeStopPicker.type === 'address' || activeStopPicker.type === 'client' ? (
                                 filteredAddressOptions.length > 0 ? (
                                   filteredAddressOptions.map(option => (
-                                    <button key={option.id} onClick={() => handlePickAddress(stop.id, option)} className="w-full px-6 py-4.5 text-left border-b border-white/5 hover:bg-[#0088CC]/10 transition-colors flex items-center justify-between group/opt">
+                                    <button 
+                                      key={option.id} 
+                                      onClick={() => {
+                                        if (activeStopPicker.type === 'client') {
+                                            // Handle client selection with a single state update to avoid race conditions
+                                            const newStops = request.stops.map(s => {
+                                                if (s.id === stop.id) {
+                                                    return { 
+                                                        ...s, 
+                                                        clientName: option.name,
+                                                        // Automatically fill address if currently empty and option has one
+                                                        address: (!s.address || s.address === '') ? (option.address || s.address) : s.address,
+                                                        zoneId: (option.zoneId && !s.zoneId) ? `zone_${option.zoneId}` : s.zoneId
+                                                    };
+                                                }
+                                                return s;
+                                            });
+
+                                            const startZoneId = newStops[0].zoneId || null;
+                                            const endZoneId = newStops[newStops.length - 1].zoneId || null;
+                                            
+                                            onChange({ ...request, stops: newStops, startZoneId, endZoneId });
+                                            setActiveStopPicker(null);
+                                            setPickerSearch('');
+                                        } else {
+                                            handlePickAddress(stop.id, option);
+                                        }
+                                      }} 
+                                      className="w-full px-6 py-4.5 text-left border-b border-white/5 hover:bg-[#0088CC]/10 transition-colors flex items-center justify-between group/opt"
+                                    >
                                       <div>
                                         <span className="block text-[13px] font-black text-slate-200 uppercase group-hover/opt:text-[#0088CC]">{option.name}</span>
                                         {option.address && <span className="text-[10px] font-bold text-slate-500 uppercase tracking-tight truncate max-w-xs block">{option.address}</span>}
@@ -1104,7 +1150,7 @@ export const DispatcherDashboard: React.FC<Props> = ({
                                   filteredZoneOptions.map(option => (
                                     <button key={option.id} onClick={() => handlePickZone(stop.id, option.id)} className="w-full px-6 py-4.5 text-left border-b border-white/5 hover:bg-[#0088CC]/10 transition-colors flex items-center justify-between group/opt">
                                       <div className="flex items-center gap-4">
-                                        <div className={`p-2 rounded-xl ${option.type === 'zone' ? 'bg-orange-500/10 text-orange-500' : 'bg-blue-500/10 text-blue-500'}`}>{option.type === 'zone' ? <Map className="w-4 h-4" /> : <Milestone className="w-4 h-4" />}</div>
+                                        <div className={`p-2 rounded-xl ${option.type === 'zone' ? 'bg-orange-500/10 text-orange-500' : 'bg-blue-500/10 text-blue-500'}`}>{option.type === 'zone' ? <MapIcon className="w-4 h-4" /> : <Milestone className="w-4 h-4" />}</div>
                                         <div>
                                           <span className="block text-[13px] font-black text-slate-200 uppercase group-hover/opt:text-[#0088CC]">{option.name}</span>
                                           <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{option.type}</span>

@@ -145,13 +145,13 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ appContext }) => {
             {!isMinimized && (
               <>
                 {/* Chat Display */}
-                <div className="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar bg-[#121212]">
+                <div className="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar bg-[#0A0A0A]">
                   {messages.map((msg, idx) => (
                     <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                      <div className={`max-w-[85%] p-3 rounded-2xl text-xs font-medium leading-relaxed ${
+                      <div className={`max-w-[85%] p-2.5 px-3.5 rounded-lg text-[11px] font-medium leading-normal shadow-sm ${
                         msg.role === 'user' 
                         ? 'bg-[#0088CC] text-white rounded-tr-none' 
-                        : 'bg-white/5 text-slate-300 border border-white/5 rounded-tl-none'
+                        : 'bg-[#1A1A1A] text-slate-300 border border-white/5 rounded-tl-none'
                       }`}>
                         {msg.content}
                       </div>
@@ -159,9 +159,9 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ appContext }) => {
                   ))}
                   {isLoading && (
                     <div className="flex justify-start">
-                      <div className="bg-white/5 p-3 rounded-2xl text-xs font-medium border border-white/5 rounded-tl-none flex items-center gap-2 text-slate-400">
+                      <div className="bg-[#1A1A1A] p-2.5 px-4 rounded-lg text-[10px] font-bold border border-white/5 rounded-tl-none flex items-center gap-2.5 text-slate-400">
                         <Loader2 className="w-3 h-3 animate-spin text-[#0088CC]" />
-                        L'IA réfléchit...
+                        <span className="uppercase tracking-[0.1em]">IA en réflexion...</span>
                       </div>
                     </div>
                   )}

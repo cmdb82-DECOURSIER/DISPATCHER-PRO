@@ -484,38 +484,38 @@ export const BillingManager: React.FC<BillingManagerProps> = ({
                     const isFinalized = mission.billingStatus === 'finalisée';
                     
                     return (
-                      <div key={`${mission.id}-${index}`} className={`border rounded-2xl flex flex-col shadow-sm transition-all duration-300 ${
+                      <div key={`${mission.id}-${index}`} className={`border rounded-xl flex flex-col shadow-sm transition-all duration-300 ${
                         isFinalized 
-                          ? 'bg-emerald-900/20 border-emerald-500/30' 
-                          : 'bg-slate-900 border-white/10 p-5 gap-4'
+                          ? 'bg-emerald-900/10 border-emerald-500/20' 
+                          : 'bg-black/30 border-white/5 p-4 gap-3'
                       }`}>
                         
                         {/* Header: ID, Date, Montant */}
-                        <div className={`flex flex-col gap-4 ${isFinalized ? 'p-4' : 'border-b border-white/5 pb-4'}`}>
+                        <div className={`flex flex-col gap-3 ${isFinalized ? 'p-3' : 'border-b border-white/5 pb-3'}`}>
                           <div className="flex justify-between items-start">
-                            <div className="flex flex-col gap-1">
-                              <div className="flex items-center gap-3">
-                                <span className="text-sm font-black text-white">Mission #{mission.missionNumber || mission.id.slice(0,8)}</span>
-                                <span className={`px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider ${
-                                  mission.billingStatus === 'finalisée' ? 'bg-emerald-500/20 text-emerald-400' :
-                                  mission.billingStatus === 'en cours de traitement' ? 'bg-blue-500/20 text-blue-400' :
-                                  'bg-amber-500/20 text-amber-400'
+                            <div className="flex flex-col gap-0.5">
+                              <div className="flex items-center gap-2">
+                                <span className="text-[11px] font-black text-white uppercase tracking-wider">Mission #{mission.missionNumber || mission.id.slice(0,8)}</span>
+                                <span className={`px-1.5 py-0.5 rounded-full text-[7.5px] font-black uppercase tracking-widest border ${
+                                  mission.billingStatus === 'finalisée' ? 'bg-emerald-500/5 text-emerald-400 border-emerald-500/20' :
+                                  mission.billingStatus === 'en cours de traitement' ? 'bg-blue-500/5 text-blue-400 border-blue-500/20' :
+                                  'bg-amber-500/5 text-amber-400 border-amber-500/20'
                                 }`}>
-                                  {mission.billingStatus || 'en attente de contrôle'}
+                                  {mission.billingStatus || 'contrôle'}
                                 </span>
                               </div>
-                              <span className="text-xs text-slate-400">{mission.date} à {mission.time}</span>
+                              <span className="text-[10px] text-slate-500 font-bold">{mission.date} • {mission.time}</span>
                             </div>
-                            <div className="flex items-center gap-4">
+                            <div className="flex items-center gap-3">
                               {mission.request.deliveryNoteNumber && (
-                                <div className="flex flex-col items-end px-4 border-r border-white/10">
-                                  <span className="text-[9px] font-black text-slate-500 uppercase tracking-widest">Bon de Livraison</span>
-                                  <span className="text-xl font-black text-yellow-400">{mission.request.deliveryNoteNumber}</span>
+                                <div className="flex flex-col items-end px-3 border-r border-white/10">
+                                  <span className="text-[8px] font-black text-slate-600 uppercase tracking-widest">BL</span>
+                                  <span className="text-base font-black text-yellow-500">{mission.request.deliveryNoteNumber}</span>
                                 </div>
                               )}
                               <div className="flex flex-col items-end">
-                                <div className="text-lg font-black text-white">{(mission.result?.priceHT || 0).toFixed(2)} € HT</div>
-                                <div className="text-[10px] font-bold text-slate-500">{(mission.result?.priceTTC || 0).toFixed(2)} € TTC</div>
+                                <div className="text-base font-black text-white">{(mission.result?.priceHT || 0).toFixed(2)}€ HT</div>
+                                <div className="text-[9px] font-bold text-slate-600 uppercase">{(mission.result?.priceTTC || 0).toFixed(2)}€ TTC</div>
                               </div>
                               {isFinalized && (
                                   <button 
@@ -570,10 +570,10 @@ export const BillingManager: React.FC<BillingManagerProps> = ({
                                     const newResult = recalculateMissionTotal(updatedMission, { fuelSurcharge: undefined });
                                     onUpdateMission({ ...updatedMission, result: newResult });
                                   }}
-                                  className={`px-2 py-1 rounded text-[10px] font-bold uppercase border transition-all ${
+                                  className={`px-2 py-0.5 rounded-full text-[7.5px] font-black uppercase tracking-widest border transition-all ${
                                     mission.request.isUrgent 
-                                      ? 'bg-red-500/20 text-red-400 border-red-500/50' 
-                                      : 'bg-slate-900 text-slate-500 border-slate-700 hover:border-slate-500'
+                                      ? 'bg-red-500/10 text-red-400 border-red-500/30' 
+                                      : 'bg-slate-900/50 text-slate-500 border-white/5 hover:border-slate-500/50'
                                   }`}
                                 >
                                   Urgent
@@ -586,10 +586,10 @@ export const BillingManager: React.FC<BillingManagerProps> = ({
                                     const newResult = recalculateMissionTotal(updatedMission, { fuelSurcharge: undefined });
                                     onUpdateMission({ ...updatedMission, result: newResult });
                                   }}
-                                  className={`px-2 py-1 rounded text-[10px] font-bold uppercase border transition-all ${
+                                  className={`px-2 py-0.5 rounded-full text-[7.5px] font-black uppercase tracking-widest border transition-all ${
                                     mission.request.isBigVolume 
-                                      ? 'bg-purple-500/20 text-purple-400 border-purple-500/50' 
-                                      : 'bg-slate-900 text-slate-500 border-slate-700 hover:border-slate-500'
+                                      ? 'bg-purple-500/10 text-purple-400 border-purple-500/30' 
+                                      : 'bg-slate-900/50 text-slate-500 border-white/5 hover:border-slate-500/50'
                                   }`}
                                 >
                                   Volume

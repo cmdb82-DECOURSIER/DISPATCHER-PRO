@@ -126,7 +126,7 @@ const BillingAIExpert: React.FC<BillingAIExpertProps> = ({ appContext }) => {
               width: '420px'
             }}
             exit={{ opacity: 0, scale: 0.9, y: 50 }}
-            className="fixed bottom-24 right-6 z-[120] bg-[#1A1A1A] border border-indigo-500/30 rounded-3xl shadow-2xl flex flex-col overflow-hidden"
+            className="fixed bottom-24 right-6 z-[120] bg-[#1A1A1A] border border-indigo-500/30 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
           >
             {/* Header */}
             <div className="p-4 bg-gradient-to-r from-indigo-600 to-indigo-800 flex items-center justify-between">
@@ -160,13 +160,13 @@ const BillingAIExpert: React.FC<BillingAIExpertProps> = ({ appContext }) => {
             {!isMinimized && (
               <>
                 {/* Chat Area */}
-                <div className="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar bg-[#0D0D0D]">
+                <div className="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar bg-[#0A0A0A]">
                   {messages.map((msg, idx) => (
                     <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                      <div className={`max-w-[90%] p-4 rounded-2xl text-[11px] font-bold leading-relaxed shadow-sm ${
+                      <div className={`max-w-[85%] p-2.5 px-3.5 rounded-lg text-[11px] font-medium leading-normal shadow-sm ${
                         msg.role === 'user' 
                         ? 'bg-indigo-600 text-white rounded-tr-none' 
-                        : 'bg-slate-900 text-slate-300 border border-white/5 rounded-tl-none'
+                        : 'bg-[#1A1A1A] text-slate-300 border border-white/5 rounded-tl-none font-sans'
                       }`}>
                         {msg.content}
                       </div>
@@ -174,9 +174,9 @@ const BillingAIExpert: React.FC<BillingAIExpertProps> = ({ appContext }) => {
                   ))}
                   {isLoading && (
                     <div className="flex justify-start">
-                      <div className="bg-slate-900 p-4 rounded-2xl text-[11px] font-bold border border-white/5 rounded-tl-none flex items-center gap-3 text-slate-400">
-                        <Loader2 className="w-4 h-4 animate-spin text-indigo-500" />
-                        L'expert calcule...
+                      <div className="bg-[#1A1A1A] p-2.5 px-4 rounded-lg text-[10px] font-bold border border-white/5 rounded-tl-none flex items-center gap-2.5 text-slate-400">
+                        <Loader2 className="w-3 h-3 animate-spin text-indigo-500" />
+                        <span className="uppercase tracking-[0.1em]">Expert en calcul...</span>
                       </div>
                     </div>
                   )}

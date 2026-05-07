@@ -599,7 +599,7 @@ export const MissionManager: React.FC<Props> = ({ missions, staff = [], clients 
                             return (
                                 <React.Fragment key={mission.id}>
                                     <tr 
-                                        className={`border-b border-[#2A2A2A] transition-colors cursor-pointer ${getCardBackground(mission)}`}
+                                        className={`border-b border-[#2A2A2A] transition-colors cursor-pointer group ${getCardBackground(mission)}`}
                                         onClick={() => setExpandedMissionId(expandedMissionId === mission.id ? null : mission.id)}
                                     >
                                         <td className="py-2 px-4" onClick={(e) => e.stopPropagation()}>
@@ -653,15 +653,15 @@ export const MissionManager: React.FC<Props> = ({ missions, staff = [], clients 
                                                             
                                                             return (
                                                                 <React.Fragment key={idx}>
-                                                                    <span title={`${stop.clientName || ''} - ${stop.address || ''}`}>
-                                                                        {stop.clientName && <span className="font-bold text-slate-200 mr-1">{stop.clientName}</span>}
-                                                                        <span className="text-slate-400">{stop.address || 'N/A'}</span>
+                                                                    <span className="flex items-center gap-1.5" title={`${stop.clientName || ''} - ${stop.address || ''}`}>
+                                                                        {stop.clientName && <span className="font-bold text-slate-200 border-b border-slate-700">{stop.clientName}</span>}
+                                                                        <span className="text-slate-400 max-w-[120px] truncate">{stop.address || 'N/A'}</span>
                                                                         {isLast && isMae && displayCountry && (
-                                                                            <span className="ml-1 text-[#FF6600] font-bold">( {displayCountry.toUpperCase()} )</span>
+                                                                            <span className="text-[#FF6600] font-black text-[9px] uppercase tracking-tighter">({displayCountry})</span>
                                                                         )}
                                                                     </span>
                                                                     {idx < mission.request.stops.length - 1 && (
-                                                                        <ChevronRight className="w-3 h-3 text-slate-600 shrink-0" />
+                                                                        <div className="w-4 h-px bg-slate-800 mx-1 shrink-0" />
                                                                     )}
                                                                 </React.Fragment>
                                                             );
@@ -712,25 +712,25 @@ export const MissionManager: React.FC<Props> = ({ missions, staff = [], clients 
                                         </td>
                                     </tr>
                                     {expandedMissionId === mission.id && (
-                                        <tr className="bg-[#1A1A1A] border-b border-[#2A2A2A]">
-                                            <td colSpan={8} className="p-0">
-                                                <div className="p-6 animate-in slide-in-from-top-1">
-                            {/* Summary Line for Copy-Paste (Expanded View) */}
-                            <div className="mb-6">
-                                <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-2">Ligne de Copie Rapide</p>
+                                        <tr className="bg-[#1A1A1A]">
+                                            <td colSpan={8} className="p-0 border-b border-[#0088CC]/30 border-l-2 border-l-[#0088CC]">
+                                                <div className="p-6 animate-in slide-in-from-top-1 bg-gradient-to-br from-[#1A1A1A] to-[#121212]">
+                            <div className="mb-6 bg-black/30 p-4 rounded-xl border border-white/5 shadow-inner">
+                                <p className="text-[9px] font-black text-slate-500 uppercase tracking-[0.2em] mb-2">Ligne de Copie Rapide</p>
                                 <div className="flex items-center gap-3">
-                                    <div className="flex-1 text-xs font-bold text-sky-400 bg-sky-400/10 px-4 py-3 rounded-xl border border-sky-400/20 select-all cursor-text font-mono">
+                                    <div className="flex-1 text-[11px] font-bold text-sky-400 bg-sky-400/5 px-4 py-2.5 rounded-lg border border-sky-400/10 select-all cursor-text font-mono truncate">
                                         {copyText}
                                     </div>
                                     <button 
-                                        onClick={() => {
+                                        onClick={(e) => {
+                                            e.stopPropagation();
                                             navigator.clipboard.writeText(copyText);
                                         }}
-                                        className="p-3 bg-sky-400/10 hover:bg-sky-400/20 text-sky-400 rounded-xl border border-sky-400/20 transition-all active:scale-95 flex items-center gap-2"
+                                        className="p-2.5 bg-sky-400/10 hover:bg-sky-400/20 text-sky-400 rounded-lg border border-sky-400/10 transition-all active:scale-95 flex items-center gap-2"
                                         title="Copier la ligne"
                                     >
-                                        <Copy className="w-4 h-4" />
-                                        <span className="text-[10px] font-black uppercase tracking-widest">Copier</span>
+                                        <Copy className="w-3.5 h-3.5" />
+                                        <span className="text-[9px] font-black uppercase tracking-widest">Copier</span>
                                     </button>
                                 </div>
                             </div>

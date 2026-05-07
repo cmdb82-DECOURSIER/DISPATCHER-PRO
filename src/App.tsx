@@ -52,7 +52,7 @@ const App: React.FC = () => {
   // --- ÉTATS GLOBAUX (DÉMARRAGE A ZÉRO OU VALEURS PAR DÉFAUT STATIQUES) ---
   // On ne charge PLUS depuis le localStorage. Si pas de DB, pas de mémoire.
   
-  const [clients, setClients] = useState<Client[]>(MOCK_CLIENTS); // Clients par défaut pour la démo, mais écrasés par le serveur
+  const [clients, setClients] = useState<Client[]>(MOCK_CLIENTS);
   const [staff, setStaff] = useState<Staff[]>(IMPORTED_STAFF);
   const [holidays, setHolidays] = useState<Holiday[]>([]);
   const [missions, setMissions] = useState<Mission[]>([]);
@@ -426,6 +426,20 @@ const App: React.FC = () => {
                     <button onClick={() => setActiveTab('settings')} className={`px-3 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest flex items-center gap-1 transition-all ${activeTab === 'settings' ? 'bg-slate-600 text-white shadow-lg' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
                         <Settings className="w-3 h-3" /> Paramètres
                     </button>
+                    <AdminExportButton 
+                      data={{ 
+                        clients, 
+                        staff, 
+                        holidays, 
+                        missions, 
+                        billingProfiles, 
+                        invoices, 
+                        zones, 
+                        fixedDestinations, 
+                        specialRoutes,
+                        settings 
+                      }} 
+                    />
                 </nav>
             </div>
 
@@ -581,20 +595,6 @@ const App: React.FC = () => {
             initialText={whatsappText}
         />
       )}
-      <AdminExportButton 
-        data={{ 
-          clients, 
-          staff, 
-          holidays, 
-          missions, 
-          billingProfiles, 
-          invoices, 
-          zones, 
-          fixedDestinations, 
-          specialRoutes,
-          settings 
-        }} 
-      />
       <AIAssistant 
         appContext={{
           settings,

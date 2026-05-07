@@ -48,35 +48,34 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({ result, request, currency
   };
 
   return (
-    <div className="flex flex-col bg-slate-900/80 backdrop-blur-xl border border-white/10 rounded-[32px] shadow-2xl overflow-hidden animate-in fade-in slide-in-from-right-4 duration-700">
+    <div className="flex flex-col bg-[#0D0D0D] border border-white/10 rounded-2xl shadow-2xl overflow-hidden animate-in fade-in slide-in-from-right-4 duration-700">
       {/* Header Tarif Final */}
-      <div className="relative p-8 overflow-hidden bg-slate-950/50 border-b border-white/5">
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#0088CC] via-blue-400 to-[#FF6600]" />
+      <div className="relative p-6 overflow-hidden bg-black/40 border-b border-white/5">
+        <div className="absolute top-0 left-0 w-full h-0.5 bg-[#0088CC]/50" />
         
-        <div className="flex flex-col items-center justify-center space-y-2">
-            <span className="text-[11px] font-black text-slate-400 uppercase tracking-[0.3em] flex items-center gap-2">
-                <ReceiptText className="w-4 h-4 text-[#0088CC]" />
-                Tarif Final TTC
+        <div className="flex flex-col items-center justify-center space-y-1">
+            <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] flex items-center gap-2">
+                TARIF FINAL TTC
             </span>
-            <div className="flex items-baseline justify-center gap-2">
-                <span className="text-6xl font-black text-white tracking-tighter">{(result.priceTTC || 0).toFixed(2)}</span>
-                <span className="text-2xl font-black text-[#0088CC]">{currency}</span>
+            <div className="flex items-baseline justify-center gap-1.5">
+                <span className="text-5xl font-black text-white tracking-tighter">{(result.priceTTC || 0).toFixed(2)}</span>
+                <span className="text-xl font-black text-[#0088CC]">{currency}</span>
             </div>
-            <div className="flex items-center gap-4 mt-4 pt-4 border-t border-white/5 w-full justify-center">
+            <div className="flex items-center gap-3 mt-3 pt-3 border-t border-white/5 w-full justify-center opacity-60">
                 <div className="flex flex-col items-center">
-                    <span className="text-[9px] font-black text-slate-500 uppercase tracking-widest">Total HT</span>
-                    <span className="text-sm font-bold text-slate-300">{(result.priceHT || 0).toFixed(2)} {currency}</span>
+                    <span className="text-[8px] font-black text-slate-500 uppercase tracking-widest">HT</span>
+                    <span className="text-xs font-bold text-slate-300">{(result.priceHT || 0).toFixed(2)}</span>
                 </div>
-                <div className="w-px h-6 bg-white/10"></div>
+                <div className="w-px h-4 bg-white/10"></div>
                 <div className="flex flex-col items-center">
-                    <span className="text-[9px] font-black text-slate-500 uppercase tracking-widest">TVA ({vatPercent}%)</span>
-                    <span className="text-sm font-bold text-slate-300">{(result.vatAmount || 0).toFixed(2)} {currency}</span>
+                    <span className="text-[8px] font-black text-slate-500 uppercase tracking-widest">TVA</span>
+                    <span className="text-xs font-bold text-slate-300">{(result.vatAmount || 0).toFixed(2)}</span>
                 </div>
             </div>
         </div>
       </div>
 
-      <div className="p-8 space-y-10">
+      <div className="p-6 space-y-8">
         {/* Audit de Calcul */}
         <div className="bg-slate-950/40 rounded-3xl border border-white/5 p-6 space-y-5 shadow-inner">
             <div className="flex items-center gap-3 mb-1 px-1">
