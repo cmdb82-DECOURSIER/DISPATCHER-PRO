@@ -674,7 +674,7 @@ export const MissionManager: React.FC<Props> = ({ missions, staff = [], clients 
                                                         e.stopPropagation();
                                                         navigator.clipboard.writeText(copyText);
                                                     }}
-                                                    className="p-1.5 text-slate-500 hover:text-sky-400 hover:bg-sky-400/10 rounded-md transition-colors shrink-0"
+                                                    className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center text-slate-500 hover:text-sky-400 hover:bg-sky-400/10 rounded-md transition-colors shrink-0"
                                                     title="Copier le texte de la course"
                                                 >
                                                     <Copy className="w-3.5 h-3.5" />
@@ -743,7 +743,7 @@ export const MissionManager: React.FC<Props> = ({ missions, staff = [], clients 
                                     <div className="w-px h-8 bg-white/10" />
                                     <div>
                                         <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Générée à</p>
-                                        <p className="text-lg font-black text-[#0088CC]">{new Date(mission.createdAt).toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}</p>
+                                        <p className="text-lg font-black text-[#FF6600]">{new Date(mission.createdAt).toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}</p>
                                     </div>
                                     <div className="w-px h-8 bg-white/10" />
                                     <div>
@@ -1475,7 +1475,7 @@ export const MissionManager: React.FC<Props> = ({ missions, staff = [], clients 
                                                                         btn.classList.remove('text-emerald-500');
                                                                     }, 2000);
                                                                 }}
-                                                                className="p-1.5 text-slate-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors inline-flex"
+                                                                className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors inline-flex"
                                                                 title="Copier le résumé"
                                                             >
                                                                 <Copy className="w-3 h-3" />
@@ -1588,7 +1588,7 @@ export const MissionManager: React.FC<Props> = ({ missions, staff = [], clients 
         {isWhatsAppModalOpen && (
             <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/90 backdrop-blur-xl p-4 animate-in fade-in duration-300">
                 <div className="bg-slate-900 rounded-[40px] shadow-2xl w-full max-w-xl border border-white/10 flex flex-col animate-in zoom-in-95 duration-400 overflow-hidden">
-                    <div className="px-10 py-8 border-b border-white/5 bg-slate-800/50 flex justify-between items-center">
+                    <div className="px-8 py-6 border-b border-white/5 bg-slate-800/50 flex justify-between items-center">
                         <div className="flex items-center gap-4">
                             <div className="p-3 bg-[#25D366]/10 rounded-2xl">
                                 <Send className="w-6 h-6 text-[#25D366]" />
@@ -1601,7 +1601,7 @@ export const MissionManager: React.FC<Props> = ({ missions, staff = [], clients 
                         <button onClick={() => setIsWhatsAppModalOpen(false)} className="p-2 text-slate-500 hover:text-white hover:bg-white/5 rounded-full transition-all"><X className="w-6 h-6" /></button>
                     </div>
                     
-                    <div className="p-10 space-y-6">
+                    <div className="p-8 space-y-6">
                         <div className="space-y-3">
                             <label className="text-[10px] font-black uppercase tracking-widest text-slate-500 block px-1">Message pour le chauffeur</label>
                             <textarea 

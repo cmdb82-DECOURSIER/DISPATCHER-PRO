@@ -137,7 +137,7 @@ const BillingAIExpert: React.FC<BillingAIExpertProps> = ({ appContext }) => {
               <div className="flex items-center gap-1">
                 <button 
                   onClick={clearChat}
-                  className="p-1.5 hover:bg-white/10 rounded-lg text-white/50 hover:text-white transition-colors"
+                  className="p-1.5 min-w-[32px] min-h-[32px] flex items-center justify-center.5 hover:bg-white/10 rounded-lg text-white/50 hover:text-white transition-colors"
                   title="Réinitialiser"
                 >
                   <Eraser className="w-4 h-4" />
@@ -203,7 +203,7 @@ const BillingAIExpert: React.FC<BillingAIExpertProps> = ({ appContext }) => {
                     <button
                       onClick={handleSend}
                       disabled={!input.trim() || isLoading}
-                      className="absolute right-2.5 top-1/2 -translate-y-1/2 p-2.5 bg-indigo-600 text-white rounded-xl disabled:opacity-50 disabled:bg-slate-800 transition-all hover:scale-110 active:scale-95 shadow-lg shadow-indigo-600/20"
+                      className="absolute right-2.5 top-1/2 -translate-y-1/2 p-2.5 min-w-[40px] min-h-[40px] flex items-center justify-center.5 bg-indigo-600 text-white rounded-xl disabled:opacity-50 disabled:bg-slate-800 transition-all hover:scale-110 active:scale-95 shadow-lg shadow-indigo-600/20"
                     >
                       <Send className="w-4 h-4" />
                     </button>

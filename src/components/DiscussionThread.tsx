@@ -79,7 +79,7 @@ export const DiscussionThread: React.FC<Props> = ({ messages, onSendMessage }) =
             <button
               onClick={handleSend}
               disabled={!text.trim()}
-              className="p-2 bg-[#0088CC] text-white rounded-xl hover:bg-[#0077B3] disabled:opacity-50 disabled:hover:bg-[#0088CC] transition-colors"
+              className="p-2.5 min-w-[40px] min-h-[40px] flex items-center justify-center bg-[#0088CC] text-white rounded-xl hover:bg-[#0077B3] disabled:opacity-50 disabled:hover:bg-[#0088CC] transition-colors"
             >
               <Send className="w-4 h-4" />
             </button>

@@ -93,7 +93,7 @@ L'équipe Dispatch`;
               <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Confirmation par email</p>
             </div>
           </div>
-          <button onClick={onClose} className="p-2 hover:bg-white/5 rounded-xl text-slate-500 transition-colors">
+          <button onClick={onClose} className="p-2.5 min-w-[40px] min-h-[40px] flex items-center justify-center hover:bg-white/5 rounded-xl text-slate-500 transition-colors">
             <X className="w-6 h-6" />
           </button>
         </div>

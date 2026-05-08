@@ -1015,7 +1015,7 @@ export const BillingManager: React.FC<BillingManagerProps> = ({
                             </span>
                           </td>
                           <td className="px-6 py-4 text-right">
-                            <button className="p-2 text-slate-500 hover:text-indigo-400 transition-colors">
+                            <button className="p-2.5 min-w-[40px] min-h-[40px] flex items-center justify-center text-slate-500 hover:text-indigo-400 transition-colors">
                               <Edit2 className="w-4 h-4" />
                             </button>
                           </td>
@@ -1053,10 +1053,10 @@ export const BillingManager: React.FC<BillingManagerProps> = ({
                       {profile.vatNumber && <p className="text-[10px] text-slate-500 font-mono mt-1">TVA: {profile.vatNumber}</p>}
                     </div>
                     <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <button onClick={() => { setEditingProfile(profile); setIsAddingProfile(false); }} className="p-1.5 bg-white/5 hover:bg-white/10 text-slate-300 rounded-lg transition-colors">
+                      <button onClick={() => { setEditingProfile(profile); setIsAddingProfile(false); }} className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center bg-white/5 hover:bg-white/10 text-slate-300 rounded-lg transition-colors">
                         <Edit2 className="w-3.5 h-3.5" />
                       </button>
-                      <button onClick={() => handleDeleteProfile(profile.id)} className="p-1.5 bg-red-500/10 hover:bg-red-500/20 text-red-400 rounded-lg transition-colors">
+                      <button onClick={() => handleDeleteProfile(profile.id)} className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center bg-red-500/10 hover:bg-red-500/20 text-red-400 rounded-lg transition-colors">
                         <Trash2 className="w-3.5 h-3.5" />
                       </button>
                     </div>

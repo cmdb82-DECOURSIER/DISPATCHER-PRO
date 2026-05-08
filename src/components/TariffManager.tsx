@@ -59,7 +59,7 @@ const TariffManager: React.FC<Props> = ({
                 <div className="text-sm font-black text-white">{item.name}</div>
                 <div className="text-xs font-bold text-purple-500 mt-1">{item.price.toFixed(2)}€</div>
               </div>
-              <button className="p-2 opacity-0 group-hover:opacity-100 hover:bg-red-500/10 text-red-500 rounded-lg transition-all">
+              <button className="p-2.5 min-w-[40px] min-h-[40px] flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-red-500/10 text-red-500 rounded-lg transition-all">
                 <Trash2 className="w-4 h-4" />
               </button>
             </div>

@@ -332,11 +332,11 @@ const CongesManager: React.FC<Props> = ({ holidays, onUpdateHolidays, staff, onU
             </div>
           )}
           {activeSubTab === 'staff' ? (
-            <button onClick={() => { setEditingStaff(null); setNewStaff({ name: '', phone: '', email: '', address: '', vehicle: '', status: 'actif', role: 'Chauffeur', contractType: 'CDI', workingHours: { start: '08:00', end: '18:00' } }); setIsAddingStaff(true); }} className="bg-white text-slate-900 px-7 py-3 rounded-2xl text-[11px] font-black uppercase tracking-widest shadow-xl shadow-white/5 hover:bg-slate-200 transition-all flex items-center gap-3 active:scale-95">
+            <button onClick={() => { setEditingStaff(null); setNewStaff({ name: '', phone: '', email: '', address: '', vehicle: '', status: 'actif', role: 'Chauffeur', contractType: 'CDI', workingHours: { start: '08:00', end: '18:00' } }); setIsAddingStaff(true); }} className="bg-white text-slate-900 px-6 py-2.5 rounded-xl min-h-[44px] text-[11px] font-black uppercase tracking-widest shadow-xl shadow-white/5 hover:bg-slate-200 transition-all flex items-center gap-3 active:scale-95">
               <UserPlus className="w-4 h-4" /> Ajouter Fiche
             </button>
           ) : (
-            <button onClick={() => { setEditingHoliday(null); setNewHoliday({ staffId: '', type: 'vacances', status: 'valide', startDate: currentDate.toISOString().split('T')[0] }); setIsAddingHoliday(true); }} className="bg-white text-slate-900 px-7 py-3 rounded-2xl text-[11px] font-black uppercase tracking-widest shadow-xl shadow-white/5 hover:bg-slate-200 transition-all flex items-center gap-3 active:scale-95">
+            <button onClick={() => { setEditingHoliday(null); setNewHoliday({ staffId: '', type: 'vacances', status: 'valide', startDate: currentDate.toISOString().split('T')[0] }); setIsAddingHoliday(true); }} className="bg-white text-slate-900 px-6 py-2.5 rounded-xl min-h-[44px] text-[11px] font-black uppercase tracking-widest shadow-xl shadow-white/5 hover:bg-slate-200 transition-all flex items-center gap-3 active:scale-95">
               <Plus className="w-4 h-4" /> Inscrire Absence
             </button>
           )}
@@ -344,23 +344,23 @@ const CongesManager: React.FC<Props> = ({ holidays, onUpdateHolidays, staff, onU
       </div>
 
       {notification && (
-        <div className="absolute top-24 right-10 z-50 bg-slate-800 text-white px-6 py-3 rounded-2xl shadow-2xl flex items-center gap-3 animate-in slide-in-from-right-10 border border-white/10">
+        <div className="absolute top-24 right-10 z-50 bg-slate-800 text-white px-5 py-2.5 rounded-xl min-h-[44px] shadow-2xl flex items-center gap-3 animate-in slide-in-from-right-10 border border-white/10">
           <CheckCircle2 className="w-5 h-5 text-emerald-400" />
           <span className="text-sm font-bold">{notification}</span>
         </div>
       )}
 
       {/* --- CONTENU --- */}
-      <div className="flex-1 flex flex-col p-10 overflow-hidden">
+      <div className="flex-1 flex flex-col p-8 overflow-hidden">
         
         {/* VUE CALENDRIER */}
         {activeSubTab === 'calendar' && (
           <div className="flex flex-col h-full animate-in fade-in duration-500">
             <div className="flex justify-between items-center mb-8">
               <div className="flex items-center gap-4">
-                <button onClick={handlePrevMonth} className="p-2.5 bg-slate-800 hover:bg-slate-700 rounded-xl border border-white/10 text-slate-400 transition-all"><ChevronLeft className="w-5 h-5" /></button>
+                <button onClick={handlePrevMonth} className="p-2.5 min-w-[40px] min-h-[40px] flex items-center justify-center.5 bg-slate-800 hover:bg-slate-700 rounded-xl border border-white/10 text-slate-400 transition-all"><ChevronLeft className="w-5 h-5" /></button>
                 <h4 className="text-xl font-black text-white uppercase tracking-widest min-w-[220px] text-center">{monthNames[currentDate.getMonth()]} {currentDate.getFullYear()}</h4>
-                <button onClick={handleNextMonth} className="p-2.5 bg-slate-800 hover:bg-slate-700 rounded-xl border border-white/10 text-slate-400 transition-all"><ChevronRight className="w-5 h-5" /></button>
+                <button onClick={handleNextMonth} className="p-2.5 min-w-[40px] min-h-[40px] flex items-center justify-center.5 bg-slate-800 hover:bg-slate-700 rounded-xl border border-white/10 text-slate-400 transition-all"><ChevronRight className="w-5 h-5" /></button>
               </div>
               <div className="flex gap-6 flex-wrap justify-center">
                  <div className="flex items-center gap-2 text-[10px] font-black text-slate-500 uppercase tracking-widest"><div className="w-3 h-3 bg-blue-600 rounded-full" /> Congés</div>
@@ -443,8 +443,8 @@ const CongesManager: React.FC<Props> = ({ holidays, onUpdateHolidays, staff, onU
                     
                     <div className="flex gap-2 relative z-10">
                       <div className="flex flex-col gap-1 mr-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <button onClick={(e) => moveStaff(e, index, 'up')} disabled={index === 0} className="p-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg border border-white/5 disabled:opacity-20 text-slate-400"><ChevronUp className="w-4 h-4" /></button>
-                        <button onClick={(e) => moveStaff(e, index, 'down')} disabled={index === filteredStaff.length - 1} className="p-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg border border-white/5 disabled:opacity-20 text-slate-400"><ChevronDown className="w-4 h-4" /></button>
+                        <button onClick={(e) => moveStaff(e, index, 'up')} disabled={index === 0} className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center bg-slate-800 hover:bg-slate-700 rounded-lg border border-white/5 disabled:opacity-20 text-slate-400"><ChevronUp className="w-4 h-4" /></button>
+                        <button onClick={(e) => moveStaff(e, index, 'down')} disabled={index === filteredStaff.length - 1} className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center bg-slate-800 hover:bg-slate-700 rounded-lg border border-white/5 disabled:opacity-20 text-slate-400"><ChevronDown className="w-4 h-4" /></button>
                       </div>
                       <button onClick={(e) => { e.stopPropagation(); setEditingStaff(s); setNewStaff(s); setIsAddingStaff(true); }} className="p-3 bg-slate-800 hover:bg-[#0088CC] text-slate-400 hover:text-white rounded-xl transition-all shadow-sm"><Edit3 className="w-5 h-5"/></button>
                       <button onClick={(e) => handleDeleteStaff(e, s)} className="p-3 bg-red-500/10 text-red-500 hover:bg-red-500 hover:text-white rounded-xl transition-all shadow-sm"><Trash2 className="w-5 h-5"/></button>
@@ -474,7 +474,7 @@ const CongesManager: React.FC<Props> = ({ holidays, onUpdateHolidays, staff, onU
 
         {/* VUE ANALYSES */}
         {activeSubTab === 'reports' && (
-          <div className="flex-1 flex flex-col md:flex-row gap-10 h-full animate-in fade-in duration-500">
+          <div className="flex-1 flex flex-col md:flex-row gap-8 h-full animate-in fade-in duration-500">
             <div className="w-full md:w-80 space-y-4">
               <label className="text-[11px] font-black uppercase text-slate-400 tracking-widest ml-1">Sélectionner un profil</label>
               <div className="space-y-2 max-h-[600px] overflow-y-auto pr-2 custom-scrollbar">
@@ -494,7 +494,7 @@ const CongesManager: React.FC<Props> = ({ holidays, onUpdateHolidays, staff, onU
                   <div className="bg-slate-900 p-8 rounded-[32px] border border-white/5 shadow-sm flex flex-col items-center hover:scale-105 transition-transform"><Timer className="w-8 h-8 text-orange-500 mb-4" /><span className="text-4xl font-black text-white">{reportData.retard}</span><span className="text-[10px] font-black text-slate-400 uppercase tracking-widest mt-1">Retards</span></div>
                 </div>
                 <div className="bg-slate-900 border border-white/5 rounded-[40px] shadow-sm overflow-hidden">
-                  <div className="px-10 py-7 bg-slate-950/30 border-b border-white/5 flex justify-between items-center"><h5 className="text-[11px] font-black text-slate-400 uppercase tracking-widest">Historique Complet</h5></div>
+                  <div className="px-8 py-5 bg-slate-950/30 border-b border-white/5 flex justify-between items-center"><h5 className="text-[11px] font-black text-slate-400 uppercase tracking-widest">Historique Complet</h5></div>
                   <div className="divide-y divide-white/5">{reportData.history.length > 0 ? reportData.history.map(h => (<div key={h.id} className="px-10 py-6 flex items-center justify-between group hover:bg-slate-800/50 transition-all"><div className="flex items-center gap-6"><div className={`w-10 h-10 rounded-xl flex items-center justify-center ${getHolidayColor(h.type)} text-white shadow-sm`}><History className="w-5 h-5" /></div><div><div className="font-black text-white text-sm uppercase tracking-tight">{h.type}</div><div className="text-[11px] text-slate-500 font-bold">du {h.startDate} au {h.endDate}</div></div></div><button onClick={() => handleRemoveHoliday(h.id)} className="p-3 bg-red-500/10 text-red-500 hover:bg-red-500 hover:text-white rounded-xl transition-all"><Trash2 className="w-5 h-5"/></button></div>)) : (<div className="py-20 text-center text-slate-600 italic text-[11px] uppercase tracking-widest">Aucune donnée</div>)}</div>
                 </div>
               </div>
@@ -507,11 +507,11 @@ const CongesManager: React.FC<Props> = ({ holidays, onUpdateHolidays, staff, onU
       {isAddingStaff && (
         <div className="fixed inset-0 z-[200] flex items-center justify-center bg-slate-950/90 backdrop-blur-xl p-8 animate-in fade-in duration-300">
            <div className="bg-slate-900 rounded-[48px] shadow-2xl w-full max-w-2xl border border-white/10 overflow-hidden relative animate-in zoom-in-95 duration-400">
-              <div className="px-12 py-10 border-b border-white/10 bg-slate-800/50 flex justify-between items-center">
+              <div className="px-8 py-6 border-b border-white/10 bg-slate-800/50 flex justify-between items-center">
                 <div className="flex items-center gap-4"><Settings2 className="w-8 h-8 text-[#0088CC]" /><h3 className="font-black text-2xl uppercase tracking-widest text-white">{editingStaff ? 'Modifier' : 'Nouveau'} Profil</h3></div>
                 <button onClick={() => setIsAddingStaff(false)} className="p-3 hover:bg-white/10 rounded-full transition-colors text-slate-400"><X className="w-8 h-8"/></button>
               </div>
-              <form onSubmit={handleSaveStaff} className="p-10 space-y-6 max-h-[75vh] overflow-y-auto custom-scrollbar text-white">
+              <form onSubmit={handleSaveStaff} className="p-8 space-y-6 max-h-[75vh] overflow-y-auto custom-scrollbar text-white">
                   <div className="space-y-2"><label className="text-[10px] font-black uppercase text-slate-400 tracking-widest ml-1">Nom Complet</label><input required type="text" className="w-full px-6 py-4 bg-slate-950 border border-white/10 rounded-[20px] text-base font-black focus:bg-slate-950 focus:border-[#0088CC] focus:ring-8 focus:ring-blue-500/5 outline-none transition-all text-white" value={newStaff.name} onChange={e => setNewStaff({...newStaff, name: e.target.value})} /></div>
                   
                   <div className="grid grid-cols-2 gap-6">
@@ -550,14 +550,14 @@ const CongesManager: React.FC<Props> = ({ holidays, onUpdateHolidays, staff, onU
       {isAddingHoliday && (
         <div className="fixed inset-0 z-[200] flex items-center justify-center bg-slate-950/90 backdrop-blur-xl p-8 animate-in fade-in duration-300">
           <div className="bg-slate-900 rounded-[48px] shadow-2xl w-full max-w-xl border border-white/10 overflow-hidden relative animate-in zoom-in-95 duration-400">
-             <div className="px-12 py-10 border-b border-white/10 bg-slate-800/50 flex justify-between items-center">
+             <div className="px-8 py-6 border-b border-white/10 bg-slate-800/50 flex justify-between items-center">
                  <h3 className="font-black text-2xl uppercase tracking-widest text-white flex items-center gap-4">
                    <CalendarDays className="w-8 h-8 text-[#0088CC]" />
                    {editingHoliday ? "ÉDITER L'ABSENCE" : "NOUVELLE ABSENCE"}
                  </h3>
                  <button onClick={() => { setIsAddingHoliday(false); setEditingHoliday(null); }} className="p-3 hover:bg-white/10 rounded-full transition-colors text-slate-400"><X className="w-8 h-8"/></button>
              </div>
-             <form onSubmit={handleSaveHoliday} className="p-12 space-y-8 text-white">
+             <form onSubmit={handleSaveHoliday} className="p-8 space-y-6 text-white">
                  <div className="space-y-3">
                    <label className="text-[10px] font-black uppercase text-slate-400 tracking-[0.2em] ml-1">PERSONNE</label>
                    <div className="relative group">

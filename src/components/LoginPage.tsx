@@ -32,7 +32,7 @@ const LoginPage: React.FC<Props> = ({ onLogin }) => {
           <p className="text-[#FF6600] text-xs font-black uppercase tracking-[0.3em] mt-2">Dispatcher Pro • Server Edition</p>
         </div>
 
-        <div className="bg-slate-900/50 backdrop-blur-xl border border-white/10 rounded-[40px] p-10 shadow-2xl">
+        <div className="bg-slate-900/50 backdrop-blur-xl border border-white/10 rounded-[40px] p-8 shadow-2xl">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-4">
               <div className="space-y-2">

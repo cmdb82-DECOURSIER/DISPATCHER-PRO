@@ -43,7 +43,7 @@ export const WhatsappPreviewModal: React.FC<Props> = ({ isOpen, onClose, initial
           </div>
           <button 
             onClick={onClose}
-            className="p-2 text-slate-500 hover:text-white hover:bg-white/5 rounded-xl transition-colors"
+            className="p-2.5 min-w-[40px] min-h-[40px] flex items-center justify-center text-slate-500 hover:text-white hover:bg-white/5 rounded-xl transition-colors"
           >
             <X className="w-5 h-5" />
           </button>

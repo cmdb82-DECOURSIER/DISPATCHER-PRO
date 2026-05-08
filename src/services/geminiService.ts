@@ -2,7 +2,7 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { RouteEstimation } from "../types";
 
-const MAPS_MODEL = "gemini-2.5-flash";
+const MAPS_MODEL = "gemini-3-flash-preview";
 const GENERAL_MODEL = "gemini-3-flash-preview";
 
 export interface ParsedDispatchData {

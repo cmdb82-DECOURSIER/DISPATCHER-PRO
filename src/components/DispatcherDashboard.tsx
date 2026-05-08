@@ -518,8 +518,8 @@ export const DispatcherDashboard: React.FC<Props> = ({
   };
 
   return (
-    <div className="bg-slate-900 rounded-[40px] shadow-2xl shadow-black/50 border border-white/10 overflow-hidden" ref={dropdownRef}>
-      <div className="bg-slate-800/50 backdrop-blur-md px-10 py-7 border-b border-white/5 flex justify-between items-center">
+    <div className="bg-slate-900 rounded-[32px] shadow-2xl shadow-black/50 border border-white/10 overflow-hidden" ref={dropdownRef}>
+      <div className="bg-slate-800/50 backdrop-blur-md px-8 py-5 border-b border-white/5 flex justify-between items-center">
         <div className="flex items-center gap-5">
             <div className="p-3 bg-white/5 rounded-2xl shadow-inner border border-white/5">
                 <Settings2 className="w-6 h-6 text-[#0088CC]" />
@@ -558,25 +558,25 @@ export const DispatcherDashboard: React.FC<Props> = ({
         <div className="flex gap-4">
             {request.pricingMode === 'delivery_note' && (
                 <>
-                    <button onClick={() => deliveryNoteRef.current?.handleDownloadJPG()} className="bg-slate-800 text-white px-5 py-3 rounded-2xl text-[11px] font-black uppercase tracking-widest flex items-center gap-2 shadow-lg hover:bg-slate-700 transition-all active:scale-95 border border-white/5">
+                    <button onClick={() => deliveryNoteRef.current?.handleDownloadJPG()} className="bg-slate-800 text-white px-4 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest flex items-center gap-2 shadow-lg hover:bg-slate-700 transition-all active:scale-95 border border-white/5">
                         <Download className="w-4 h-4" /> Générer JPG
                     </button>
-                    <button onClick={() => deliveryNoteRef.current?.handleShare()} className="bg-[#25D366] text-white px-5 py-3 rounded-2xl text-[11px] font-black uppercase tracking-widest flex items-center gap-2 shadow-lg hover:bg-[#20b858] transition-all active:scale-95">
+                    <button onClick={() => deliveryNoteRef.current?.handleShare()} className="bg-[#25D366] text-white px-4 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest flex items-center gap-2 shadow-lg hover:bg-[#20b858] transition-all active:scale-95">
                         <Archive className="w-4 h-4" /> Envoyer au Coursier
                     </button>
-                    <div className="w-px h-10 bg-white/10 mx-2"></div>
+                    <div className="w-px h-8 bg-white/10 mx-2"></div>
                 </>
             )}
-            <button onClick={() => setIsClientManagerOpen(true)} className="bg-white/5 hover:bg-white/10 text-slate-300 border border-white/5 px-6 py-3 rounded-2xl text-[11px] font-black uppercase tracking-widest flex items-center gap-3 transition-all shadow-lg active:scale-95">
+            <button onClick={() => setIsClientManagerOpen(true)} className="bg-white/5 hover:bg-white/10 text-slate-300 border border-white/5 px-5 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest flex items-center gap-3 transition-all shadow-lg active:scale-95">
                 <Users className="w-4 h-4 text-slate-400" /> Annuaire Clients
             </button>
-            <button onClick={() => { setEditingClientId(null); setNewClient({ name: '', phone: '', default_address: '', email: '', default_tariff_id: '', clientNumber: '' }); setIsClientModalOpen(true); }} className="bg-[#0088CC] hover:bg-[#0077b3] text-white px-7 py-3 rounded-2xl text-[11px] font-black uppercase tracking-widest flex items-center gap-3 transition-all shadow-xl shadow-blue-500/20 active:scale-95">
+            <button onClick={() => { setEditingClientId(null); setNewClient({ name: '', phone: '', default_address: '', email: '', default_tariff_id: '', clientNumber: '' }); setIsClientModalOpen(true); }} className="bg-[#0088CC] hover:bg-[#0077b3] text-white px-6 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest flex items-center gap-3 transition-all shadow-xl shadow-blue-500/20 active:scale-95">
                 <Plus className="w-4 h-4" /> Ajouter
             </button>
         </div>
       </div>
 
-      <div className="px-10 py-7 border-b border-white/5 bg-slate-800/30">
+      <div className="px-8 py-5 border-b border-white/5 bg-slate-800/30">
           <div className="flex items-center gap-6">
               <label className="flex items-center gap-3 text-white cursor-pointer">
                   <input 
@@ -612,7 +612,7 @@ export const DispatcherDashboard: React.FC<Props> = ({
               )}
           </div>
       </div>
-      <div className="p-10 space-y-12">
+      <div className="p-8 space-y-10">
         
         {/* Mode Toggle moved below */}
 
@@ -629,14 +629,14 @@ export const DispatcherDashboard: React.FC<Props> = ({
                 {request.isScheduled ? (
                     <div className="flex gap-4 animate-in fade-in slide-in-from-top-2 duration-300">
                         <div className="relative flex-1">
-                            <Calendar className="absolute left-5 top-5 w-4.5 h-4.5 text-slate-400" />
-                            <input type="date" className="w-full pl-14 py-5 bg-slate-950/50 border border-white/10 rounded-2xl text-sm font-black focus:bg-slate-900 focus:border-[#0088CC] outline-none shadow-inner text-yellow-400" value={request.selectedDate} onChange={(e) => onChange({...request, selectedDate: e.target.value})}/>
+                            <Calendar className="absolute left-4 top-4 w-4.5 h-4.5 text-slate-400" />
+                            <input type="date" className="w-full pl-12 py-3.5 bg-slate-950/50 border border-white/10 rounded-[14px] text-sm font-black focus:bg-slate-900 focus:border-[#0088CC] outline-none shadow-inner text-yellow-400" value={request.selectedDate} onChange={(e) => onChange({...request, selectedDate: e.target.value})}/>
                         </div>
                         <div className="relative w-40">
-                            <Clock className="absolute left-5 top-5 w-4.5 h-4.5 text-slate-400" />
+                            <Clock className="absolute left-4 top-4 w-4.5 h-4.5 text-slate-400" />
                             <input 
                                 type="time" 
-                                className="w-full pl-14 py-5 bg-slate-950/50 border border-white/10 rounded-2xl text-sm font-black focus:bg-slate-900 focus:border-[#0088CC] outline-none shadow-inner transition-all text-orange-500" 
+                                className="w-full pl-12 py-3.5 bg-slate-950/50 border border-white/10 rounded-[14px] text-sm font-black focus:bg-slate-900 focus:border-[#0088CC] outline-none shadow-inner transition-all text-orange-500" 
                                 value={request.selectedTime} 
                                 onChange={(e) => onChange({...request, selectedTime: e.target.value})}
                             />
@@ -761,7 +761,7 @@ export const DispatcherDashboard: React.FC<Props> = ({
                      <button 
                         onClick={onShareMission} 
                         disabled={!request.instructions}
-                        className="bg-[#0088CC] hover:bg-[#0077b3] text-white px-10 py-5 rounded-[28px] text-xs font-black uppercase tracking-[0.2em] flex items-center justify-center gap-4 shadow-2xl shadow-blue-500/20 active:scale-95 disabled:opacity-50 transition-all border-b-4 border-blue-900"
+                        className="bg-[#0088CC] hover:bg-[#0077b3] text-white px-8 py-4 rounded-2xl min-h-[48px] text-[11px] font-black uppercase tracking-[0.2em] flex items-center justify-center gap-4 shadow-2xl shadow-blue-500/20 active:scale-95 disabled:opacity-50 transition-all border-b-4 border-blue-900"
                     >
                         <Archive className="w-5 h-5" /> ENREGISTRER LA MISSION
                     </button>
@@ -777,10 +777,10 @@ export const DispatcherDashboard: React.FC<Props> = ({
                     <span className="text-[10px] text-slate-500 font-bold uppercase tracking-tight">Saisissez les adresses pour le guidage GPS</span>
                 </div>
                 <div className="flex gap-3">
-                    <button onClick={handleOptimizeRoute} disabled={loading || request.stops.length < 3} className="bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-500 border border-emerald-500/20 px-5 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all shadow-lg active:scale-95 flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
+                    <button onClick={handleOptimizeRoute} disabled={loading || request.stops.length < 3} className="bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-500 border border-emerald-500/20 px-4 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all shadow-lg active:scale-95 flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
                         <Sparkles className="w-4 h-4" /> Optimiser
                     </button>
-                    <button onClick={addStop} className="bg-white/5 hover:bg-white/10 text-[#0088CC] border border-white/10 px-7 py-3 rounded-2xl text-[11px] font-black uppercase tracking-widest transition-all shadow-lg active:scale-95 flex items-center gap-3">
+                    <button onClick={addStop} className="bg-white/5 hover:bg-white/10 text-[#0088CC] border border-white/10 px-5 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all shadow-lg active:scale-95 flex items-center gap-3">
                         <Plus className="w-4 h-4" /> Nouvelle Étape
                     </button>
                 </div>
@@ -911,7 +911,7 @@ export const DispatcherDashboard: React.FC<Props> = ({
                                     />
                                     <button 
                                         onClick={() => setActiveStopPicker(activeStopPicker?.id === stop.id && activeStopPicker.type === 'address' ? null : { id: stop.id, type: 'address' })} 
-                                        className="absolute right-2 top-1.5 text-slate-600 hover:text-[#0088CC]"
+                                        className="absolute right-2 top-2 min-w-[36px] min-h-[36px] flex items-center justify-center text-slate-600 hover:text-[#0088CC]"
                                     >
                                         <Users className="w-3.5 h-3.5" />
                                     </button>
@@ -938,8 +938,8 @@ export const DispatcherDashboard: React.FC<Props> = ({
 
                             {/* Actions */}
                             <div className="lg:col-span-2 flex items-center justify-end gap-0.5">
-                                <button onClick={() => clearStop(stop.id)} className="p-1.5 text-slate-600 hover:text-[#0088CC] hover:bg-white/5 rounded-lg transition-all" title="Effacer"><Eraser className="w-3.5 h-3.5" /></button>
-                                {request.stops.length > 2 && <button onClick={() => removeStop(stop.id)} className="p-1.5 text-slate-600 hover:text-red-500 hover:bg-red-500/10 rounded-lg transition-all" title="Supprimer"><Trash2 className="w-3.5 h-3.5" /></button>}
+                                <button onClick={() => clearStop(stop.id)} className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center text-slate-600 hover:text-[#0088CC] hover:bg-white/5 rounded-lg transition-all" title="Effacer"><Eraser className="w-3.5 h-3.5" /></button>
+                                {request.stops.length > 2 && <button onClick={() => removeStop(stop.id)} className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center text-slate-600 hover:text-red-500 hover:bg-red-500/10 rounded-lg transition-all" title="Supprimer"><Trash2 className="w-3.5 h-3.5" /></button>}
                             </div>
 
                             {/* MAE Config - Horizontal Row if active (The "Sous Case") */}
@@ -1015,7 +1015,7 @@ export const DispatcherDashboard: React.FC<Props> = ({
                                                             const newDocs = (request.maeDocuments || []).filter(d => d.id !== doc.id);
                                                             onChange({...request, maeDocuments: newDocs});
                                                         }}
-                                                        className="p-1.5 text-slate-700 hover:text-red-500 transition-colors"
+                                                        className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center text-slate-700 hover:text-red-500 transition-colors"
                                                     >
                                                         <X className="w-3 h-3" />
                                                     </button>
@@ -1039,13 +1039,13 @@ export const DispatcherDashboard: React.FC<Props> = ({
                                         <div className="bg-slate-950 p-1 rounded-lg border border-white/5 flex gap-1">
                                             <button 
                                                 onClick={() => onChange({ ...request, maeType: 'apostille' })}
-                                                className={`px-3 py-1 rounded-md text-[8px] font-black uppercase transition-all ${request.maeType === 'apostille' ? 'bg-[#FF6600] text-white shadow-lg shadow-orange-500/20' : 'text-slate-500 hover:text-white'}`}
+                                                className={`px-3 py-1.5 min-h-[32px] rounded-lg text-[10px] font-black uppercase transition-all ${request.maeType === 'apostille' ? 'bg-[#FF6600] text-white shadow-lg shadow-orange-500/20' : 'text-slate-500 hover:text-white'}`}
                                             >
                                                 Apostille
                                             </button>
                                             <button 
                                                 onClick={() => onChange({ ...request, maeType: 'legalisation' })}
-                                                className={`px-3 py-1 rounded-md text-[8px] font-black uppercase transition-all ${request.maeType === 'legalisation' ? 'bg-[#FF6600] text-white shadow-lg shadow-orange-500/20' : 'text-slate-500 hover:text-white'}`}
+                                                className={`px-3 py-1.5 min-h-[32px] rounded-lg text-[10px] font-black uppercase transition-all ${request.maeType === 'legalisation' ? 'bg-[#FF6600] text-white shadow-lg shadow-orange-500/20' : 'text-slate-500 hover:text-white'}`}
                                             >
                                                 Légalisation
                                             </button>
@@ -1117,9 +1117,9 @@ export const DispatcherDashboard: React.FC<Props> = ({
                                                     return { 
                                                         ...s, 
                                                         clientName: option.name,
-                                                        // Automatically fill address if currently empty and option has one
-                                                        address: (!s.address || s.address === '') ? (option.address || s.address) : s.address,
-                                                        zoneId: (option.zoneId && !s.zoneId) ? `zone_${option.zoneId}` : s.zoneId
+                                                        // Always replace address and zone if picking a client contact
+                                                        address: option.address || '',
+                                                        zoneId: option.zoneId || null
                                                     };
                                                 }
                                                 return s;
@@ -1144,7 +1144,7 @@ export const DispatcherDashboard: React.FC<Props> = ({
                                       <Check className="w-5 h-5 text-[#0088CC] opacity-0 group-hover/opt:opacity-100" />
                                     </button>
                                   ))
-                                ) : ( <div className="p-10 text-center text-slate-500 font-bold text-[11px] uppercase tracking-widest">Aucun client</div> )
+                                ) : ( <div className="p-8 text-center text-slate-500 font-bold text-[11px] uppercase tracking-widest">Aucun client</div> )
                               ) : (
                                 filteredZoneOptions.length > 0 ? (
                                   filteredZoneOptions.map(option => (
@@ -1159,7 +1159,7 @@ export const DispatcherDashboard: React.FC<Props> = ({
                                       <Check className="w-5 h-5 text-[#0088CC] opacity-0 group-hover/opt:opacity-100" />
                                     </button>
                                   ))
-                                ) : ( <div className="p-10 text-center text-slate-500 font-bold text-[11px] uppercase tracking-widest">Aucune zone</div> )
+                                ) : ( <div className="p-8 text-center text-slate-500 font-bold text-[11px] uppercase tracking-widest">Aucune zone</div> )
                               )}
                             </div>
                           </div>
@@ -1171,7 +1171,7 @@ export const DispatcherDashboard: React.FC<Props> = ({
 
 
             <div className="pt-4">
-                <button onClick={() => { onChange({...request, returnToStart: !request.returnToStart}); setIsCalculated(false); }} className={`flex items-center gap-4 px-10 py-5 rounded-[28px] border-2 text-[11px] font-black uppercase tracking-[0.2em] transition-all shadow-sm ${request.returnToStart ? 'bg-blue-500/10 border-blue-500/30 text-[#0088CC]' : 'bg-slate-950 border-white/5 text-slate-500 hover:bg-white/5'}`}><RotateCcw className={`w-4 h-4 ${request.returnToStart ? 'animate-spin-slow' : ''}`} /> Aller-Retour</button>
+                <button onClick={() => { onChange({...request, returnToStart: !request.returnToStart}); setIsCalculated(false); }} className={`flex items-center gap-3 px-6 py-3.5 rounded-xl border-2 text-[10px] font-black uppercase tracking-[0.2em] transition-all shadow-sm ${request.returnToStart ? 'bg-blue-500/10 border-blue-500/30 text-[#0088CC]' : 'bg-slate-950 border-white/5 text-slate-500 hover:bg-white/5'}`}><RotateCcw className={`w-4 h-4 ${request.returnToStart ? 'animate-spin-slow' : ''}`} /> Aller-Retour</button>
             </div>
 
             <div className="space-y-4 pt-4">
@@ -1186,9 +1186,9 @@ export const DispatcherDashboard: React.FC<Props> = ({
 
             <div className="flex flex-col sm:flex-row justify-between items-center pt-10 border-t border-white/5 gap-6">
                 <div className="flex gap-4">
-                  {isCalculated && <button onClick={onShareMission} className="flex items-center gap-4 px-10 py-5 rounded-[28px] border-2 border-[#25D366] bg-[#25D366]/5 text-[#25D366] text-[11px] font-black uppercase tracking-[0.2em] transition-all shadow-sm hover:bg-[#25D366]/10 animate-in slide-in-from-left-2"><Archive className="w-4 h-4" /> Enregistrer Mission</button>}
+                  {isCalculated && <button onClick={onShareMission} className="flex items-center gap-3 px-6 py-3.5 rounded-xl border-2 border-[#25D366] bg-[#25D366]/5 text-[#25D366] text-[10px] font-black uppercase tracking-[0.2em] transition-all shadow-sm hover:bg-[#25D366]/10 animate-in slide-in-from-left-2"><Archive className="w-4 h-4" /> Enregistrer Mission</button>}
                 </div>
-                <button onClick={() => handleCalculateRoute(false)} disabled={loading} className="w-full sm:w-auto bg-[#0088CC] hover:bg-[#0077b3] text-white px-16 py-6 rounded-[32px] text-xs font-black uppercase tracking-[0.4em] flex items-center justify-center gap-4 shadow-2xl shadow-blue-500/20 active:scale-95 disabled:opacity-50 transition-all border-b-4 border-blue-900">{loading ? <Loader2 className="w-6 h-6 animate-spin" /> : <Calculator className="w-6 h-6" />} GÉNÉRER LA MISSION / DEVIS</button>
+                <button onClick={() => handleCalculateRoute(false)} disabled={loading} className="w-full sm:w-auto bg-[#0088CC] hover:bg-[#0077b3] text-white px-10 py-4 rounded-2xl text-[11px] font-black uppercase tracking-[0.2em] flex items-center justify-center gap-3 shadow-2xl shadow-blue-500/20 active:scale-95 disabled:opacity-50 transition-all border-b-4 border-blue-900">{loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Calculator className="w-5 h-5" />} GÉNÉRER LA MISSION / DEVIS</button>
             </div>
             <div ref={mapRef}>
                 <MapPreview request={request} isXXL={true} zones={zones} fixedDestinations={fixedDestinations} />
@@ -1367,7 +1367,7 @@ export const DispatcherDashboard: React.FC<Props> = ({
                     <button 
                         onClick={() => handleCalculateRoute(false)} 
                         disabled={loading || !request.stops[0]?.address || !request.stops[request.stops.length - 1]?.address}
-                        className="bg-[#0088CC] hover:bg-[#0077b3] text-white px-16 py-6 rounded-[32px] text-xs font-black uppercase tracking-[0.4em] flex items-center justify-center gap-4 shadow-2xl shadow-blue-500/20 active:scale-95 disabled:opacity-50 transition-all border-b-4 border-blue-900"
+                        className="bg-[#0088CC] hover:bg-[#0077b3] text-white px-8 py-4 rounded-2xl min-h-[48px] text-xs font-black uppercase tracking-[0.4em] flex items-center justify-center gap-4 shadow-2xl shadow-blue-500/20 active:scale-95 disabled:opacity-50 transition-all border-b-4 border-blue-900"
                     >
                         {loading ? <Loader2 className="w-6 h-6 animate-spin" /> : <Calculator className="w-6 h-6" />} 
                         CALCULER L'ESTIMATION
@@ -1376,7 +1376,7 @@ export const DispatcherDashboard: React.FC<Props> = ({
 
                 {isCalculated && (
                     <div className="flex justify-center animate-in fade-in slide-in-from-bottom-4">
-                         <button onClick={onShareMission} className="flex items-center gap-4 px-10 py-5 rounded-[28px] border-2 border-[#25D366] bg-[#25D366]/5 text-[#25D366] text-[11px] font-black uppercase tracking-[0.2em] transition-all shadow-sm hover:bg-[#25D366]/10">
+                         <button onClick={onShareMission} className="flex items-center gap-4 px-6 py-3.5 rounded-xl min-h-[44px] border-2 border-[#25D366] bg-[#25D366]/5 text-[#25D366] text-[11px] font-black uppercase tracking-[0.2em] transition-all shadow-sm hover:bg-[#25D366]/10">
                             <Archive className="w-4 h-4" /> Enregistrer Mission
                         </button>
                     </div>
@@ -1389,7 +1389,7 @@ export const DispatcherDashboard: React.FC<Props> = ({
       {isSmartImportOpen && (
         <div className="fixed inset-0 z-[120] flex items-center justify-center bg-slate-950/90 backdrop-blur-2xl p-4 sm:p-8 animate-in fade-in duration-300">
            <div className="bg-slate-900 rounded-[48px] shadow-2xl w-full max-w-2xl border border-white/10 flex flex-col animate-in zoom-in-95 duration-400 overflow-hidden relative">
-              <div className="px-12 py-10 border-b border-white/10 bg-slate-800/50 flex justify-between items-center">
+              <div className="px-8 py-6 border-b border-white/10 bg-slate-800/50 flex justify-between items-center">
                   <div className="flex items-center gap-6">
                       <div className="p-4 bg-purple-500 rounded-3xl shadow-xl shadow-purple-500/20"><Sparkles className="w-8 h-8 text-white" /></div>
                       <div>
@@ -1399,7 +1399,7 @@ export const DispatcherDashboard: React.FC<Props> = ({
                   </div>
                   <button onClick={() => setIsSmartImportOpen(false)} className="p-3 text-slate-500 hover:text-white hover:bg-white/5 rounded-full transition-all"><X className="w-8 h-8" /></button>
               </div>
-              <div className="p-12 space-y-8">
+              <div className="p-8 space-y-6">
                   <div className="space-y-4">
                       <label className="text-[13px] font-black uppercase tracking-[0.2em] text-slate-400 block px-1">Collez votre demande (Email, SMS, Note)</label>
                       <div className="relative group">
@@ -1429,7 +1429,7 @@ export const DispatcherDashboard: React.FC<Props> = ({
         <div className="fixed inset-0 z-[120] flex items-center justify-center bg-slate-950/90 backdrop-blur-2xl p-4 sm:p-8 animate-in fade-in duration-300">
            {/* ... (Client Modal Content same as before) ... */}
            <div className="bg-slate-900 rounded-[48px] shadow-2xl w-full max-w-2xl border border-white/10 flex flex-col animate-in zoom-in-95 duration-400 overflow-hidden relative">
-              <div className="px-12 py-10 border-b border-white/10 bg-slate-800/50 flex justify-between items-center">
+              <div className="px-8 py-6 border-b border-white/10 bg-slate-800/50 flex justify-between items-center">
                   <div className="flex items-center gap-6">
                       <div className="p-4 bg-[#0088CC] rounded-3xl shadow-xl shadow-blue-500/20">{editingClientId ? <Pencil className="w-8 h-8 text-white" /> : <UserPlus className="w-8 h-8 text-white" />}</div>
                       <div>
@@ -1439,7 +1439,7 @@ export const DispatcherDashboard: React.FC<Props> = ({
                   </div>
                   <button onClick={() => { setIsClientModalOpen(false); setEditingClientId(null); }} className="p-3 text-slate-500 hover:text-white hover:bg-white/5 rounded-full transition-all"><X className="w-8 h-8" /></button>
               </div>
-              <form onSubmit={handleAddClientSubmit} className="p-12 space-y-8 max-h-[75vh] overflow-y-auto custom-scrollbar">
+              <form onSubmit={handleAddClientSubmit} className="p-8 space-y-6 max-h-[75vh] overflow-y-auto custom-scrollbar">
                   <div className="space-y-3">
                       <label className="text-[13px] font-black uppercase tracking-[0.2em] text-slate-400 block px-1">Raison Sociale / NOM</label>
                       <div className="relative group">
@@ -1483,7 +1483,7 @@ export const DispatcherDashboard: React.FC<Props> = ({
                           <input type="tel" placeholder="+352..." className="w-full px-8 py-6 bg-slate-950 border-2 border-white/10 rounded-3xl text-lg font-black text-white outline-none" value={newClient.phone} onChange={(e) => setNewClient({...newClient, phone: e.target.value})} />
                       </div>
                   </div>
-                  <button type="submit" className="w-full py-8 mt-4 bg-[#0088CC] hover:bg-[#0077b3] text-white rounded-[32px] text-base font-black uppercase tracking-[0.4em] shadow-2xl active:scale-95 transition-all border-b-8 border-blue-800">{editingClientId ? 'METTRE À JOUR' : 'ENREGISTRER LE CLIENT'}</button>
+                  <button type="submit" className="w-full py-5 mt-4 bg-[#0088CC] hover:bg-[#0077b3] text-white rounded-2xl text-[11px] font-black uppercase tracking-[0.2em] shadow-2xl active:scale-95 transition-all border-b-4 border-blue-800">{editingClientId ? 'METTRE À JOUR' : 'ENREGISTRER LE CLIENT'}</button>
               </form>
            </div>
         </div>
@@ -1493,7 +1493,7 @@ export const DispatcherDashboard: React.FC<Props> = ({
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/80 backdrop-blur-xl p-8 animate-in fade-in duration-300">
           {/* ... (Client Manager Content same as before) ... */}
           <div className="bg-slate-900 rounded-[48px] shadow-2xl w-full max-w-4xl border border-white/10 flex flex-col max-h-[90vh] animate-in zoom-in-95 duration-400 overflow-hidden">
-            <div className="px-12 py-10 border-b border-white/10 flex justify-between items-center bg-slate-800/50">
+            <div className="px-8 py-6 border-b border-white/10 flex justify-between items-center bg-slate-800/50">
               <div className="flex items-center gap-6">
                 <div className="p-4 bg-blue-500/10 rounded-3xl"><Users className="w-7 h-7 text-[#0088CC]" /></div>
                 <div>
@@ -1508,13 +1508,13 @@ export const DispatcherDashboard: React.FC<Props> = ({
                 <button onClick={() => setIsClientManagerOpen(false)} className="p-3.5 text-slate-400 hover:bg-white/10 hover:text-white rounded-full transition-colors"><X className="w-7 h-7" /></button>
               </div>
             </div>
-            <div className="p-10 bg-slate-900 border-b border-white/5">
+            <div className="p-8 bg-slate-900 border-b border-white/5">
                 <div className="relative group">
                     <Search className="absolute left-6 top-5.5 w-6 h-6 text-slate-500" />
                     <input type="text" placeholder="Rechercher par nom, ville, ref..." className="w-full pl-16 pr-8 py-6 bg-slate-950 border border-white/10 rounded-3xl text-sm font-black outline-none focus:ring-8 focus:ring-blue-500/5 focus:bg-slate-900 text-white transition-all" value={clientManagerSearch} onChange={(e) => setClientManagerSearch(e.target.value)} />
                 </div>
             </div>
-            <div className="overflow-y-auto flex-1 p-10 space-y-5 bg-slate-950/30 custom-scrollbar">
+            <div className="overflow-y-auto flex-1 p-8 space-y-5 bg-slate-950/30 custom-scrollbar">
               {filteredManagerClients.length > 0 ? filteredManagerClients.map(c => (
                 <div key={c.id} className="p-6 bg-slate-800 border border-white/5 rounded-[32px] flex justify-between items-center group hover:border-[#0088CC]/30 hover:shadow-2xl transition-all">
                   <div className="flex items-center gap-6">

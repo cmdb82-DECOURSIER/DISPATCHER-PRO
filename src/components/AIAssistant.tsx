@@ -122,7 +122,7 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ appContext }) => {
               <div className="flex items-center gap-1">
                 <button 
                   onClick={clearChat}
-                  className="p-1.5 hover:bg-white/10 rounded-lg text-white/50 hover:text-white transition-colors"
+                  className="p-1.5 min-w-[32px] min-h-[32px] flex items-center justify-center.5 hover:bg-white/10 rounded-lg text-white/50 hover:text-white transition-colors"
                   title="Effacer le chat"
                 >
                   <Eraser className="w-4 h-4" />
@@ -182,7 +182,7 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ appContext }) => {
                     <button
                       onClick={handleSend}
                       disabled={!input.trim() || isLoading}
-                      className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-[#0088CC] text-white rounded-lg disabled:opacity-50 disabled:bg-slate-700 transition-all hover:scale-105 active:scale-95"
+                      className="absolute right-2 top-1/2 -translate-y-1/2 p-2.5 min-w-[40px] min-h-[40px] flex items-center justify-center bg-[#0088CC] text-white rounded-lg disabled:opacity-50 disabled:bg-slate-700 transition-all hover:scale-105 active:scale-95"
                     >
                       <Send className="w-4 h-4" />
                     </button>

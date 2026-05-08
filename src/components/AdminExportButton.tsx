@@ -40,7 +40,7 @@ POUR DÉPLOYER LE SITE SUR VERCEL :
     <div className="relative group">
       <button
         onClick={handleExport}
-        className="px-3 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest flex items-center gap-1.5 transition-all bg-red-600/20 text-red-500 border border-red-500/20 hover:bg-red-600 hover:text-white shadow-sm"
+        className="px-4 py-2.5 rounded-xl text-[11px] min-h-[40px] font-black uppercase tracking-widest flex items-center gap-1.5 transition-all bg-red-600/20 text-red-500 border border-red-500/20 hover:bg-red-600 hover:text-white shadow-sm"
       >
         <Download className="w-3 h-3" />
         Backup

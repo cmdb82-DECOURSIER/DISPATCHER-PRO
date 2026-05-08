@@ -402,28 +402,28 @@ const App: React.FC = () => {
             <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center justify-center pointer-events-auto">
                 <ClockWidget />
                 <nav className="flex gap-0.5 bg-white/5 p-1 rounded-2xl mt-2 whitespace-nowrap">
-                    <button onClick={() => setActiveTab('mission')} className={`px-3 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest flex items-center gap-1 transition-all ${activeTab === 'mission' ? 'bg-[#0088CC] text-white shadow-lg' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
+                    <button onClick={() => setActiveTab('mission')} className={`px-4 py-2.5 rounded-xl text-[11px] min-h-[40px] font-black uppercase tracking-widest flex items-center gap-1 transition-all ${activeTab === 'mission' ? 'bg-[#0088CC] text-white shadow-lg' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
                         <MapIcon className="w-3 h-3" /> Mission
                     </button>
-                    <button onClick={() => setActiveTab('dispatch')} className={`px-3 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest flex items-center gap-1 transition-all ${activeTab === 'dispatch' ? 'bg-[#FF6600] text-white shadow-lg' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
+                    <button onClick={() => setActiveTab('dispatch')} className={`px-4 py-2.5 rounded-xl text-[11px] min-h-[40px] font-black uppercase tracking-widest flex items-center gap-1 transition-all ${activeTab === 'dispatch' ? 'bg-[#FF6600] text-white shadow-lg' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
                         <Archive className="w-3 h-3" /> Dispatch
                     </button>
-                    <button onClick={() => setActiveTab('apostille')} className={`px-3 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest flex items-center gap-1 transition-all ${activeTab === 'apostille' ? 'bg-red-600 text-white shadow-lg' : isBlinking ? 'bg-red-500 animate-pulse text-white' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
+                    <button onClick={() => setActiveTab('apostille')} className={`px-4 py-2.5 rounded-xl text-[11px] min-h-[40px] font-black uppercase tracking-widest flex items-center gap-1 transition-all ${activeTab === 'apostille' ? 'bg-red-600 text-white shadow-lg' : isBlinking ? 'bg-red-500 animate-pulse text-white' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
                         <FileText className="w-3 h-3" /> Apostille
                     </button>
-                    <button onClick={() => setActiveTab('facturation')} className={`px-3 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest flex items-center gap-1 transition-all ${activeTab === 'facturation' ? 'bg-indigo-600 text-white shadow-lg' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
+                    <button onClick={() => setActiveTab('facturation')} className={`px-4 py-2.5 rounded-xl text-[11px] min-h-[40px] font-black uppercase tracking-widest flex items-center gap-1 transition-all ${activeTab === 'facturation' ? 'bg-indigo-600 text-white shadow-lg' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
                         <ReceiptEuro className="w-3 h-3" /> Facturation
                     </button>
-                    <button onClick={() => setActiveTab('database')} className={`px-3 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest flex items-center gap-1 transition-all ${activeTab === 'database' ? 'bg-purple-600 text-white shadow-lg' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
+                    <button onClick={() => setActiveTab('database')} className={`px-4 py-2.5 rounded-xl text-[11px] min-h-[40px] font-black uppercase tracking-widest flex items-center gap-1 transition-all ${activeTab === 'database' ? 'bg-purple-600 text-white shadow-lg' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
                         <Database className="w-3 h-3" /> Tarif
                     </button>
-                    <button onClick={() => setActiveTab('conges')} className={`px-3 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest flex items-center gap-1 transition-all ${activeTab === 'conges' ? 'bg-emerald-600 text-white shadow-lg' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
+                    <button onClick={() => setActiveTab('conges')} className={`px-4 py-2.5 rounded-xl text-[11px] min-h-[40px] font-black uppercase tracking-widest flex items-center gap-1 transition-all ${activeTab === 'conges' ? 'bg-emerald-600 text-white shadow-lg' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
                         <CalendarOff className="w-3 h-3" /> Congés
                     </button>
-                    <button onClick={() => setActiveTab('rapports')} className={`px-3 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest flex items-center gap-1 transition-all ${activeTab === 'rapports' ? 'bg-pink-600 text-white shadow-lg' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
+                    <button onClick={() => setActiveTab('rapports')} className={`px-4 py-2.5 rounded-xl text-[11px] min-h-[40px] font-black uppercase tracking-widest flex items-center gap-1 transition-all ${activeTab === 'rapports' ? 'bg-pink-600 text-white shadow-lg' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
                         <User className="w-3 h-3" /> Rapport
                     </button>
-                    <button onClick={() => setActiveTab('settings')} className={`px-3 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest flex items-center gap-1 transition-all ${activeTab === 'settings' ? 'bg-slate-600 text-white shadow-lg' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
+                    <button onClick={() => setActiveTab('settings')} className={`px-4 py-2.5 rounded-xl text-[11px] min-h-[40px] font-black uppercase tracking-widest flex items-center gap-1 transition-all ${activeTab === 'settings' ? 'bg-slate-600 text-white shadow-lg' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
                         <Settings className="w-3 h-3" /> Paramètres
                     </button>
                     <AdminExportButton 
@@ -448,7 +448,7 @@ const App: React.FC = () => {
                 <DiscussionThread messages={messages} onSendMessage={handleSendMessage} />
                 <button 
                     onClick={handleLogout}
-                    className="p-2.5 bg-white/5 hover:bg-red-500/10 text-slate-400 hover:text-red-500 rounded-xl transition-all border border-white/5 hover:border-red-500/20 group"
+                    className="p-2.5 min-w-[40px] min-h-[40px] flex items-center justify-center.5 bg-white/5 hover:bg-red-500/10 text-slate-400 hover:text-red-500 rounded-xl transition-all border border-white/5 hover:border-red-500/20 group"
                 >
                     <LogOut className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
                 </button>
@@ -559,6 +559,24 @@ const App: React.FC = () => {
                   </>
                 )}
             </div>
+            
+            {/* Winfleet Iframe */}
+            <div className="max-w-[1800px] mx-auto mt-12 bg-[#1A1A1A] rounded-2xl border border-[#2A2A2A] overflow-hidden shadow-2xl">
+              <div className="p-4 bg-[#222] border-b border-[#333] flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <MapIcon className="w-5 h-5 text-emerald-500" />
+                  <span className="font-black uppercase tracking-widest text-slate-300">Tracking Temps Réel (Winfleet)</span>
+                </div>
+              </div>
+              <iframe 
+                src="https://app.winfleet.lu/#live?asset=63187&period=2025-12-30" 
+                width="100%" 
+                height="600px" 
+                className="border-none bg-white"
+                title="Winfleet Live Tracking"
+              />
+            </div>
+            
         </div>
 
         {activeTab === 'mission' && (
